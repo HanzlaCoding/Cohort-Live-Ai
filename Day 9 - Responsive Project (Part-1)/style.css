@@ -1,0 +1,235 @@
+@font-face {
+  font-family: Chillax;
+  src: url(Fonts/Chillax-Light.ttf);
+}
+@font-face {
+  font-family: font2;
+  src: url(Fonts/modern.ttf);
+}
+@font-face {
+  font-family: Satoshi-Light;
+  src: url(Fonts/Satoshi-Light.ttf);
+}
+@font-face {
+  font-family: Satoshi-Reg;
+  src: url(Fonts/Satoshi-Reguler.ttf);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #0e0e0e;
+}
+
+nav {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  margin: 1rem auto;
+  width: 90%;
+  background-color: rgba(218, 197, 167, 0.0509803922);
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
+  opacity: 1;
+  background-color: transparent;
+  position: sticky;
+  border: 0.5px solid rgba(218, 197, 167, 0.1490196078);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-family: Satoshi-Reg;
+  text-transform: uppercase;
+}
+nav img {
+  width: 20%;
+}
+nav h5 {
+  display: none;
+}
+nav .btn-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+nav .btn-icon button {
+  padding: 0.4rem 1rem;
+  border-radius: 0.1rem;
+  white-space: nowrap;
+  font-family: Satoshi-Reg;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background-color: #dac5a7;
+  border: none;
+}
+nav .btn-icon i {
+  font-size: 1.5rem;
+  color: #dac5a7;
+}
+
+main {
+  width: 100%;
+}
+
+h1,
+p {
+  color: wheat;
+}
+
+.section-1 {
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section-1 img {
+  width: 80%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.section-1 h1 {
+  font-size: 2.9rem;
+  text-align: center;
+  font-weight: 100;
+  line-height: 3rem;
+  font-family: Satoshi-Light;
+}
+.section-1 h1 i {
+  font-family: font2;
+}
+.section-1 p {
+  font-family: Chillax;
+  line-height: 1.6rem;
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 0.5rem 0rem;
+}
+.section-1 p br {
+  display: none;
+}
+
+.services {
+  margin: 0 auto;
+  display: flex;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  white-space: nowrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: Satoshi-Reg;
+  font-weight: 400;
+}
+.services span {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(218, 197, 167, 0.0509803922);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #dac5a7;
+}
+
+.section-2 {
+  width: 100%;
+  padding: 2rem 0rem;
+  display: flex;
+  justify-content: center;
+}
+.section-2 .marque {
+  display: flex;
+  width: 90%;
+  gap: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+.section-2 .marque::after {
+  content: "";
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #0e0e0e, transparent);
+}
+.section-2 .marque::before {
+  content: "";
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -5%;
+  z-index: 1;
+  background-image: linear-gradient(to left, #0e0e0e, transparent);
+}
+.section-2 .marque .item {
+  display: flex;
+  padding: 0 3rem;
+  gap: 10rem;
+  animation: marquee 10s linear infinite both;
+}
+.section-2 .marque .item img {
+  height: 30%;
+  width: 30%;
+  background-color: #dac5a7;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.cards-clutter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.cards-clutter .card {
+  flex-shrink: 0;
+  width: 100%;
+  background-color: #fff;
+}
+
+@media (min-width: 1020px) {
+  html {
+    font-size: clamp(16px, 1vw, 20px);
+  }
+  nav h5 {
+    display: block;
+  }
+  .section-1 {
+    display: flex;
+    justify-content: center;
+  }
+  .section-1 img {
+    width: 40%;
+  }
+  .section-1 h1 {
+    font-size: 8.5rem;
+    line-height: 9rem;
+  }
+  .section-1 p {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    margin: 2rem 0rem;
+  }
+  .section-1 p br {
+    display: block;
+  }
+}/*# sourceMappingURL=style.css.map */

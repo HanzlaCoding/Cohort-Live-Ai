@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@font-face {
+    font-family: machina;
+    src: url(NeueMachina-Regular.otf);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  background-color: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Helvetica";
+  color: #fff;
+}
+
+.contact-form {
+  width: 65%;
+  height: 70%;
+  padding: 2vw;
+  border-radius: 1vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.part1 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5vw;
+}
+
+.part1-info {
+  text-align: center;
+}
+
+.part1-info h1 {
+  font-weight: 300;
+  font-size: 2.5vw;
+}
+
+.ri-discord-fill{
+    color: #5562EA;
+}
+
+.part1 .part1-info #sheryText {
+  font-family: Machina;
+  background-color: #27e0b3;
+  border-radius: 20px;
+  padding: 2px 7px;
+  color: #212121;
+  box-shadow: 0px 0px 25px #24CFA6;
+  margin-left: 5px;  
+}
+
+.shery-logo {
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6UYyeqcLiKnZiyBQNaGHijuZoeqj5Rq4ojw&s);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.part1-button {
+  padding: 0.7vw 1.5vw;
+  font-size: 1.4vw;
+  border-radius: 1vw;
+  border: none;
+  outline: none;
+}
+
+.part1-button i {
+  font-size: 1.5vw;
+}
+.line {
+  height: 100%;
+  width: 1px;
+  background-color: #e5e5e5;
+  margin: 0px 2vw;
+}
+
+.part2 {
+  width: 50%;
+  height: 100%;
+}
+
+.part2 h1 {
+  font-weight: 300;
+  text-align: center;
+}
+
+.part2 .fl-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.part2 h1{
+    margin-bottom: 5px;
+}
+
+.part2 input, textarea {
+  padding: 10px 8px;
+  border-radius: 5px;
+  overflow: none;
+  font-family: "Helvetica";
+  letter-spacing: -.2px;
+  border: none;
+  font-size: 1vw;
+  font-weight: 400;
+  margin-bottom: 1vw;
+  background-color: #1E1E1E;
+  color:#fff;
+}
+
+.part2 .fl-name input[type="text"] {
+  width: 50%;
+}
+
+.part2 input[type="email"] {
+  width: 100%;
+}
+
+.part2 textarea {
+    margin-top: 5px;
+    width: 100%;
+}
+
+.part2 button{
+    padding: 0.5vw 1vw;
+    font-size: 1.3vw;
+    border-radius: .3vw;
+    border: none;
+    outline: none;
+    width: 100%;
+    margin: 0 auto;
+}
+
+button{
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) .5s;
+}
+
+button:hover{
+    box-shadow: 0px 0px 25px #24CFA6;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+}
