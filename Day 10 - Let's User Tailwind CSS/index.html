@@ -1,11 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio by Hanzla</title>
+  <link href="style.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="font">
+
+<body>
+  <nav class="h-med flex justify-between items-center px-20 py-10">
+    <div class="part1">
+      <h5>Portfolio</h5>
+    </div>
+    <div class="part2 flex gap-5">
+      <a href="#">Home</a>
+      <a href="#" class="opacity-40">Socials</a>
+      <a href="#" class="opacity-40">Projects</a>
+      <a href="#" class="opacity-40">Contact</a>
+    </div>
+  </nav>
+  <main class="px-20">
+    <section class="introduction flex justify-between items-end">
+      <div class="part1">
+        <h4 class="h-med">Hello, I am</h4>
+        <h1 class="text-8xl -ml-1 h-extrabold">Hanzala.</h1>
+      </div>
+      <div class="part2 flex justify-center items-center gap-2 h-reg leading-none">
+        <p>[06:32 PM]</p>
+        <div class="line h-[1px] w-20 bg-zinc-900"></div>
+        <p>Creative Frontend Developer</p>
+      </div>
+    </section>
+    <section class="image">
+      <div class="image w-full h-[30rem] mt-5 bg-red-500">
+        <img class="w-full h-full object-cover object-[20%_20%]"
+          src="https://images.unsplash.com/photo-1739001416673-8c03d1a2d257?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="">
+      </div>
+    </section>
+    <section class="experience h-[40rem] flex justify-center items-center">
+      <div class="bg-img text-center flex flex-col items-center gap-3 relative">
+        <div class="overlay absolute top-36 flex flex-col gap-3 items-center">
+          <h1 class="text-4xl h-bold">[I design & build experiences]</h1>
+        <p class="h-reg w-[80%]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius dolor, consequatur ipsam alias
+          placeat
+          eligendi iusto repellat assumenda earum, suscipit corporis amet! Accusamus ab at, porro provident odio
+          aliquid, iste excepturi est in officia numquam molestiae voluptate corrupti sed voluptates. Voluptatem
+          accusamus nisi optio? Similique.</p>
+        </div>
+        <img src="Images/NewProject.jpg" class="object-cover" alt="">
+      </div>
+    </section>
+    <section class="begining h-med text-7xl whitespace-nowrap flex flex-col gap-24">
+      <div class="2017 flex items-center">
+        <h1>2017.</h1>
+        <div class="line h-[2px] w-32 bg-[#B2B2B2]"></div>
+        <h1 class="text-[#B2B2B2]">The Begining</h1>
+      </div>
+      <div class="flex justify-between w-full gap-10 h-[60rem]">
+        <div class="parent1 h-full w-[80%] flex flex-col gap-20">
+          <div class="child bg-gray-300 h-[40%] w-full"></div>
+          <div class="child bg-gray-300 h-[60%]"></div>
+        </div>
+        <div class="parent2 h-full w-[80%] flex flex-col justify-end gap-20">
+          <div class="child bg-gray-300 h-[55%] w-full"></div>
+          <div class="child bg-gray-300 h-[30%]"></div>
+        </div>
+        <div class="parent3 h-full w-[80%] flex flex-col gap-20 py-10">
+          <div class="child bg-gray-300 h-[30%] w-full"></div>
+          <div class="child bg-gray-300 h-[45%]"></div>
+        </div>
+      </div>
+      <div class="2017 flex items-center">
+        <h1>2018.</h1>
+        <div class="line h-[2px] w-32 bg-[#B2B2B2]"></div>
+        <h1 class="text-[#B2B2B2]">Escalation</h1>
+      </div>
+      <div class="flex justify-between w-full gap-10 h-[60rem]">
+        <div class="parent1 h-full w-[80%] flex flex-col gap-20">
+          <div class="child bg-gray-300 h-[40%] w-full"></div>
+          <div class="child bg-gray-300 h-[60%]"></div>
+        </div>
+        <div class="parent2 h-full w-[80%] flex flex-col justify-end gap-20">
+          <div class="child bg-gray-300 h-[55%] w-full"></div>
+          <div class="child bg-gray-300 h-[30%]"></div>
+        </div>
+        <div class="parent3 h-full w-[80%] flex flex-col gap-20 py-10">
+          <div class="child bg-gray-300 h-[30%] w-full"></div>
+          <div class="child bg-gray-300 h-[45%]"></div>
+        </div>
+      </div>
+    </section>
+    <section class="technologies w-full h-[30rem] flex justify-center items-center gap-10">
+      <!-- <div class="bgimage w-full h-[30%] bg-no-repeat bg-[url('./Images/image.png')]"> -->
+      <h3 class="text-center h-bold text-6xl">Coming Soon...</h3>
+      </div>
+    </section>
+    <section class="testimonials w-full h-[45rem]">
+      <h3 class="h-med text-4xl -mb-4">Client</h3>
+      <div class="part1 flex items-center gap-10c:\Users\Hanzla Dev\Downloads\arrow.png">
+        <h1 class="h-bold text-8xl">Testimonials</h1>
+        <div class="arrow">
+          <img class="h-32" src="Images/arrow.png" alt="right" />
+        </div>
+        <h1 class="h-bold text-8xl">works</h1>
+      </div>
+      <div class="image w-full h-[70%] mt-5 flex flex-col gap-3">
+        <h2 class="h-bold text-5xl">Britannia</h2>
+        <div class="part1 flex items-center gap-3 h-med">
+          <h3 class="text-2xl">2017</h3>
+          <img class="w-20" src="Images/arrow.png" alt="">
+          <h3 class="text-2xl">Mumbai</h3>
+        </div>
+        <img class="w-full h-[80%] object-cover"
+          src="https://images.unsplash.com/photo-1550294791-9db6f094384c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="">
+      </div>
+    </section>
+    <section class="orange-splash h-[50rem] flex justify-between gap-28 pb-24">
+      <div class="image w-[30%] h-full mt-5 flex flex-col gap-3 self-start">
+        <h2 class="h-bold text-5xl">Orange Splash</h2>
+        <div class="part1 flex items-center gap-3 h-med">
+          <h3 class="text-2xl">2017</h3>
+          <img class="w-20" src="Images/arrow.png" alt="">
+          <h3 class="text-2xl">Mumbai</h3>
+        </div>
+        <div class="img w-[100%] h-[70%] overflow-hidden">
+          <img class="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1655844226452-0fac4ac80628?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="">
+        </div>
+      </div>
+      <div class="image w-[70%] h-[70%] mt-5 flex flex-col gap-2 self-end">
+        <h2 class="h-bold text-5xl">Palm Jumerah</h2>
+        <div class="part1 flex items-center gap-3 h-med">
+          <h3 class="text-2xl">2025</h3>
+          <img class="w-20" src="Images/arrow.png" alt="">
+          <h3 class="text-2xl">Dubai</h3>
+        </div>
+        <div class="img w-full h-full bg-blue-500 overflow-hidden">
+          <img class=" object-cover w-full h-full"
+            src="https://images.unsplash.com/photo-1736329279938-372e9e471795?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="">
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="w-full py-5 px-20">
+    <div class="part1 flex justify-between">
+      <h5 class="h-reg"><span class="h-bold">Hanzala</span> Shahid</h5>
+      <h5 class="h-reg">11 Feb, 2025 [05:00 PM]</h5>
+    </div>
+  </footer>
 </body>
+
 </html>

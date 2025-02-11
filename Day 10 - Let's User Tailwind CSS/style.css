@@ -1,0 +1,69 @@
+@font-face {
+  font-family: Helvetica1;
+  src: url(fonts/HelveticaNowDisplay-Regular.ttf);
+}
+
+@font-face {
+  font-family: Helvetica2;
+  src: url(fonts/HelveticaNowDisplay-Medium.ttf);
+}
+
+@font-face {
+  font-family: Helvetica3;
+  src: url(fonts/HelveticaNowDisplay-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: Helvetica4;
+  src: url(fonts/HelveticaNowDisplay-ExtBlk.ttf);
+}
+
+@font-face {
+  font-family: Helvetica5;
+  src: url(fonts/HelveticaNowDisplay-Bold.ttf);
+}
+
+@font-face {
+  font-family: Helvetica6;
+  src: url(fonts/HelveticaNowDisplay-Black.ttf);
+}
+
+.h-reg{
+  font-family: Helvetica1;
+}
+
+.h-med{
+  font-family: Helvetica2;
+}
+
+.h-extrabold{
+  font-family: Helvetica3;
+}
+
+.h-extblk{
+  font-family: Helvetica4;
+}
+
+.h-bold{
+  font-family: Helvetica5;
+}
+
+.h-black{
+  font-family: Helvetica6;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  width: 100%;
+  background-color: #FFFFFF;
+}/*# sourceMappingURL=style.css.map */
