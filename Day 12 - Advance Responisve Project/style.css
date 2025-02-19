@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Syne:wght@400..800&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  background-color: #fdfbf5;
+  border: 1px solid black;
+}
+
+.view-1 {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.view-1 p {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: Roboto Mono;
+}
+.view-1 h1 {
+  font-family: Syne;
+  font-size: 4.5rem;
+  line-height: 4.5rem;
+  font-weight: 500;
+}
+.view-1 img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1em;
+}
+
+.view-2 {
+  padding: 1rem;
+}
+.view-2 .part1 {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.view-2 .part1 h2 {
+  font-size: 3rem;
+  font-family: Syne;
+  font-weight: 500;
+  line-height: 3rem;
+}
+.view-2 .part1 p {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: Roboto Mono;
+}
+.view-2 .part1 button {
+  padding: 0.5rem 1rem;
+  background-color: #191919;
+  color: #fdfbf5;
+  border: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 0.5rem;
+  font-family: Roboto Mono;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+.view-2 .line {
+  height: 1px;
+  background-color: #191919;
+  margin: 1rem 0rem;
+}
+.view-2 .bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.view-2 .bottom .line {
+  height: 1px;
+  background-color: #191919;
+}
+.view-2 .bottom .card .svg {
+  width: 20%;
+}
+.view-2 .bottom .card h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: Syne;
+}
+.view-2 .bottom .card p {
+  font-family: "Satoshi";
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+@media (min-width: 1080px) {
+  main {
+    padding: 1.5rem;
+  }
+  main .view-1 p {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  main .view-1 h1 {
+    font-size: 6rem;
+    color: #191919;
+    line-height: 6rem;
+  }
+  main .view-1 img {
+    border-radius: 1.4em;
+  }
+  main .view-2 {
+    display: flex;
+    flex-direction: row;
+  }
+  main .view-2 h2 {
+    width: 80%;
+    line-height: 2rem;
+  }
+  main .view-2 .line {
+    height: initial;
+    width: 1px;
+  }
+  main .view-2 .part1 {
+    padding: 0rem 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  main .view-2 .part1 .main-content h2 {
+    font-size: 5.2rem;
+    line-height: 5rem;
+    width: 100%;
+  }
+  main .view-2 .bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem 2rem;
+  }
+  main .view-2 .bottom .line {
+    width: 100%;
+    height: 1px;
+  }
+  main .view-2 .bottom .card p {
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+}/*# sourceMappingURL=style.css.map */

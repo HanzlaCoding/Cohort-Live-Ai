@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.our-client{
+  animation: marquee 50s linear 2s infinite both;
+}
+
+@keyframes marquee {
+  0%{
+    transform: translate(0%);
+  }
+  100%{
+    transform: translate(-100%);
+  }
+}
+
+.satoshi{
+  font-family: 'Satoshi';
+}
