@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
 * {
   padding: 0;
@@ -41,34 +41,38 @@ main {
     }
   }
 
-  .part2 {
+  .image {
     width: 100%;
-    padding: 0.5rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-
-    .text-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    padding: 0rem 1.5rem;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  .services {
+    width: 100%;
+    padding: 0rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .cards-clutter {
+      display: flex;
+      flex-direction: column;
+      margin: 2rem 0rem;
+      gap: 1.5rem;
+    }
 
     h1 {
       font-size: 2.5rem;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-        sans-serif;
       line-height: 100%;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-family: "General Sans";
       font-weight: 400;
+      text-transform: uppercase;
+      padding: 1.5rem 0rem;
     }
 
     p {
@@ -77,18 +81,10 @@ main {
       font-size: 1.125rem;
       line-height: 150%;
       letter-spacing: 1px;
+      color: #8f8f8f;
     }
-  }
 
-  .services {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-    gap: 1.5rem;
-
-    .card:nth-child(4) {
+    .card:nth-child(5) {
       border: none;
     }
 
@@ -117,33 +113,48 @@ main {
 
   .page3 {
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: 1rem 0rem;
     display: flex;
-    align-items: center;
+    flex-direction: column;
 
-    .part1 {
-      align-self: self-start;
-      padding: 1rem 0.5rem;
-      font-weight: 400;
-      letter-spacing: 1px;
-      width: 10%;
-      white-space: nowrap;
-      transform: rotate(90deg);
-    }
+    .wrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      padding: 1rem 1.5rem;
 
-    .part2 {
-      width: 90%;
-      padding: 0;
-
-      h2 {
-        font-size: 4rem;
-        font-weight: 300;
-        line-height: 100%;
+      .part1 {
+        align-self: self-start;
+        padding: 1rem 0.5rem;
+        font-weight: 400;
+        font-size: .9rem;
+        letter-spacing: 1px;
+        width: 15%;
+        white-space: nowrap;
+        transform: rotate(90deg);
+        letter-spacing: 1px;
+        font-family: "Roboto condensed";
       }
 
-      p {
-        color: #8f8f8f;
-        line-height: 120%;
+      .part2 {
+        width: 85%;
+        padding: 0;
+
+        h2 {
+          font-size: 2.5rem;
+          font-weight: 400;
+          line-height: 110%;
+          text-transform: uppercase;
+          font-family: "General Sans";
+        }
+
+        p {
+          color: #8f8f8f;
+          line-height: 120%;
+          font-size: 1.2rem;
+          font-family: "Roboto Mono";
+        }
       }
     }
   }
@@ -153,16 +164,66 @@ main {
   main {
     padding: 0 2rem;
 
-    .part2 {
+    .main {
+      display: flex;
       flex-direction: row-reverse;
+      min-height: 100%;
 
-      img {
-        width: 45%;
-        height: 90%;
+      .image {
+        
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
       }
 
-      h1 {
-        font-size: 5rem;
+      .services {
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+
+    .page3{
+      flex-direction: row;
+      align-items: center;
+      height: 100%;
+
+      .image{
+        width: 50%;
+        height: 95%;
+
+        .img{
+          // object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .wrapper{
+        flex-direction: row-reverse;
+        height: 90%;
+
+        .part2{
+
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 5rem;
+
+          h2{
+            font-size: 5.5rem;
+            font-weight: 400;
+            text-transform: uppercase;
+          }
+
+          p{
+            font-size: 1.2rem;
+            width: 90%;
+          }
+        }
       }
     }
   }
