@@ -40,7 +40,15 @@ main {
 }
 .screen-1 .bottom .images {
   display: grid;
-  grid-template-areas: "a a b b" "a a b b" "a a b b" "a a b b" "a a b b" "a a b b" "a a c c" "a a c c";
+  grid-template-areas: 
+  "a a b b" 
+  "a a b b" 
+  "a a b b" 
+  "a a b b" 
+  "a a b b"
+  "a a b b" 
+  "a a c c" 
+  "a a c c";
   gap: 0.5rem;
 }
 .screen-1 .bottom .images img {
