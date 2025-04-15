@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-zinc-950 w-full h-screen text-white font-[SF_Pro_Display] flex justify-center items-center">
+
+    <div class="guess-container">
+        <div class="wrapper flex flex-col items-center justify-center gap-5 rounded-md">
+            <h1 class="text-4xl font-bold">Who will win this <span class="text-blue-500 tracking-tighter">Pakistan's Super League</span>?</h1>
+            <div class="winner">
+                <h1 class="winner-h1 bg-zinc-800 min-w-90 p-3 rounded-md text-6xl flex justify-center items-center text-green-500 font-bold">Winner here!</h1>
+                <h2 class="jersey text-center mt-2 capitalize text-3xl font-[400]">Jersey Color</h2>
+            </div>
+            <button class="btn bg-red-500 rounded-md px-3 py-2 cursor-pointer">Guess Winner</button>
+        </div>
+    </div>
+
+    <script>
+        const teams = [
+            {
+                name: "Lahore Qalandars",
+                jerseyColor: "Red and Black",
+                logo: "https://upload.wikimedia.org/wikipedia/en/3/37/Lahore_Qalandars_logo.png"
+            },
+            {
+                name: "Karachi Kings",
+                jerseyColor: "Blue and Gold",
+                logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Karachi_Kings_logo.png"
+            },
+            {
+                name: "Islamabad United",
+                jerseyColor: "Red and Orange",
+                logo: "https://upload.wikimedia.org/wikipedia/en/a/a8/Islamabad_United_logo.png"
+            },
+            {
+                name: "Peshawar Zalmi",
+                jerseyColor: "Yellow and Blue",
+                logo: "https://upload.wikimedia.org/wikipedia/en/3/3f/Peshawar_Zalmi_logo.png"
+            },
+            {
+                name: "Quetta Gladiators",
+                jerseyColor: "Purple and Gold",
+                logo: "https://upload.wikimedia.org/wikipedia/en/0/0e/Quetta_Gladiators_logo.png"
+            },
+            {
+                name: "Multan Sultans",
+                jerseyColor: "Green and Blue",
+                logo: "https://upload.wikimedia.org/wikipedia/en/4/4c/Multan_Sultans_logo.png"
+            }
+        ];
+
+        const btn = document.querySelector('.btn');
+        const winner = document.querySelector('.winner-h1');
+        const jersey = document.querySelector('.jersey');
+
+        btn.addEventListener('click', () => {
+            const idx = Math.floor(Math.random()*teams.length);
+            const team = teams[idx];
+
+            winner.textContent = team.name;
+            jersey.textContent = team.jerseyColor;
+            
+        })
+    </script>
+</body>
+
+</html>

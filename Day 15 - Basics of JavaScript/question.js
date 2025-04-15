@@ -228,3 +228,26 @@ function secondLargest() {
 
 }
 
+// Find 1st non-repeating character.
+
+// function nonRepeating() {
+//     const str = prompt("Enter the string");
+//     const arr = str.split("");
+
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr.indexOf(arr[i]) === arr.lastIndexOf(arr[i])) {
+//             console.log(arr[i]);
+//             break;
+//         }
+//     }
+// }
+
+
+const num1 =prompt("Enter 1st number:");
+
+const splittedNumber = num1.split("");
+
+splittedNumber.forEach((value)=>{
+    Number(value)
+    console.log(value);
+})

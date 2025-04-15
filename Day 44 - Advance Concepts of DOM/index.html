@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Swap Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex justify-center items-center h-screen bg-gray-100 font-['SF_Pro_Display']">
+
+    <div class="p-6 space-y-4 flex gap-5 items-center justify-center bg-white rounded-lg shadow-lg">
+        <div class="img1 w-96 h-96 bg-gray-200 rounded-lg overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1742878012844-51c0c68e743c?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+        <button class="px-4 py-1 bg-green-500 text-white rounded-full">Swap</button>
+        <div class="img2 w-96 h-96 bg-gray-200 rounded-lg overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1740471230710-94fbcbb6c330?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+    </div>
+
+    <script>
+        const img1 = document.querySelector('.img1');
+        const img2 = document.querySelector('.img2');
+        const swapButton = document.querySelector('button');
+
+        swapButton.addEventListener('click', () => {
+            const tempSrc = img1.querySelector('img').src;
+            img1.querySelector('img').src = img2.querySelector('img').src;
+            img2.querySelector('img').src = tempSrc;
+        });
+    </script>
+</body>
+</html>
+
+<!-- 
+1. moving coursor
+2. instagram like feature
+3. navbar like sheryians
+
+{
+setAttribute
+getAttribute
+createElement
+appendChild
+}
+-->

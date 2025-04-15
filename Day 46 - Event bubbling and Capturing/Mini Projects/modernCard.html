@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Card UI By Hanzala</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="h-screen bg-gray-100 font-['Helvetica_Now_Display'] p-12 flex gap-4 flex-wrap ">
+
+
+    <script>
+        const people = [
+            {
+                name: "Alexander Kane",
+                gender: "Male",
+                maritalStatus: "Single",
+                age: 29,
+                lastOnline: "15m ago",
+                image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400"
+            },
+            {
+                name: "Sophia Rivera",
+                gender: "Female",
+                maritalStatus: "Married",
+                age: 34,
+                lastOnline: "42m ago",
+                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400"
+            },
+            {
+                name: "Daniel Grayson",
+                gender: "Male",
+                maritalStatus: "Divorced",
+                age: 45,
+                lastOnline: "1h ago",
+                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400"
+            },
+            {
+                name: "Olivia Chen",
+                gender: "Female",
+                maritalStatus: "Single",
+                age: 27,
+                lastOnline: "8m ago",
+                image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400"
+            },
+            {
+                name: "Ethan Blackwood",
+                gender: "Male",
+                maritalStatus: "Married",
+                age: 38,
+                lastOnline: "23m ago",
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400"
+            },
+            {
+                name: "Isabella Martinez",
+                gender: "Female",
+                maritalStatus: "Single",
+                age: 31,
+                lastOnline: "56m ago",
+                image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400"
+            },
+            {
+                name: "Nathaniel Pierce",
+                gender: "Male",
+                maritalStatus: "Widowed",
+                age: 52,
+                lastOnline: "2h ago",
+                image: "https://images.unsplash.com/photo-1542345812-d98b5cd6cf98?w=400"
+            },
+            {
+                name: "Ava Sinclair",
+                gender: "Female",
+                maritalStatus: "Married",
+                age: 29,
+                lastOnline: "4m ago",
+                image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400"
+            },
+            {
+                name: "Christopher Vaughn",
+                gender: "Male",
+                maritalStatus: "Single",
+                age: 33,
+                lastOnline: "1h ago",
+                image: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=400"
+            },
+            {
+                name: "Mia Rodriguez",
+                gender: "Female",
+                maritalStatus: "Divorced",
+                age: 40,
+                lastOnline: "37m ago",
+                image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400"
+            },
+            {
+                name: "Sebastian Cole",
+                gender: "Male",
+                maritalStatus: "Single",
+                age: 26,
+                lastOnline: "19m ago",
+                image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400"
+            },
+            {
+                name: "Charlotte Hayes",
+                gender: "Female",
+                maritalStatus: "Married",
+                age: 35,
+                lastOnline: "1h ago",
+                image: "https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?w=400"
+            },
+            {
+                name: "Dominic Frost",
+                gender: "Male",
+                maritalStatus: "Single",
+                age: 30,
+                lastOnline: "28m ago",
+                image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400"
+            },
+            {
+                name: "Amelia Bennett",
+                gender: "Female",
+                maritalStatus: "Single",
+                age: 24,
+                lastOnline: "7m ago",
+                image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400"
+            },
+            {
+                name: "Lucas Grey",
+                gender: "Male",
+                maritalStatus: "Married",
+                age: 41,
+                lastOnline: "1h ago",
+                image: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=400"
+            },
+            {
+                name: "Harper Scott",
+                gender: "Female",
+                maritalStatus: "Divorced",
+                age: 47,
+                lastOnline: "3h ago",
+                image: "https://images.unsplash.com/photo-1541823709867-1b206113eafd?w=400"
+            },
+            {
+                name: "Gabriel Stone",
+                gender: "Male",
+                maritalStatus: "Single",
+                age: 32,
+                lastOnline: "14m ago",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400"
+            },
+            {
+                name: "Lily Adams",
+                gender: "Female",
+                maritalStatus: "Married",
+                age: 36,
+                lastOnline: "51m ago",
+                image: "https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=400"
+            },
+            {
+                name: "Julian Mercer",
+                gender: "Male",
+                maritalStatus: "Single",
+                age: 28,
+                lastOnline: "22m ago",
+                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400"
+            },
+            {
+                name: "Zoe Parker",
+                gender: "Female",
+                maritalStatus: "Single",
+                age: 25,
+                lastOnline: "9m ago",
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400"
+            },
+            {
+                name: "Theodore Banks",
+                gender: "Male",
+                maritalStatus: "Married",
+                age: 39,
+                lastOnline: "1h ago",
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400"
+            },
+            {
+                name: "Scarlett Reed",
+                gender: "Female",
+                maritalStatus: "Divorced",
+                age: 43,
+                lastOnline: "2h ago",
+                image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=400"
+            },
+            {
+                name: "Elijah Rhodes",
+                gender: "Male",
+                maritalStatus: "Single",
+                age: 31,
+                lastOnline: "18m ago",
+                image: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=400"
+            },
+            {
+                name: "Victoria Flynn",
+                gender: "Female",
+                maritalStatus: "Married",
+                age: 37,
+                lastOnline: "45m ago",
+                image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400"
+            },
+            {
+                name: "Caleb Archer",
+                gender: "Male",
+                maritalStatus: "Single",
+                age: 27,
+                lastOnline: "6m ago",
+                image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400"
+            }
+        ];
+
+
+        let person = '';
+
+
+        people.forEach((items, idx) => {
+            person += `
+            <div class="card w-70 h-90 rounded-[3vw] relative overflow-hidden hover:scale-99 shadow-lg transition-all duration-300 ease-in-out shadow-lg shadow-black/30">
+        <div class="text-content absolute p-5 text-center w-full text-white flex flex-col justify-between h-full z-20">
+            <div class="connect">
+                <h1 class="text-4xl whitespace-nowrap tracking-tighter -mb-1">${items.name}</h1>
+                <h3 class="text-sm">${items.maritalStatus}</h3>
+            </div>
+            <div class="info flex justify-between items-center backdrop-blur-sm p-1 rounded-md">
+                <div class="part1 flex gap-2 items-center whitespace-nowrap">
+                    <div class="display-image w-8 h-8 rounded-full overflow-hidden">
+                        <img src="${items.image}" alt="">
+                    </div>
+                    <div class="part1-inside text-left">
+                        <p class="text-[16px] -mb-1">${items.name}</p>
+                        <p class="text-[12px]">${items.lastOnline}</p>
+                    </div>
+                </div>
+                <div class="part2">
+                    <button class="px-4 py-1 bg-zinc-100 rounded-lg text-lg text-black font-bold">Friend</button>
+                </div>
+            </div>
+        </div>
+        <div class="image w-full h-full overflow-hidden">
+            <img class="object-cover w-full h-full object-center" src=${items.image} alt="">
+        </div>
+    </div>
+            `
+        })
+
+        document.body.innerHTML += person;
+
+        const cardBtn = document.querySelector('.card .info .part2 button');
+
+        cardBtn.addEventListener('click', (e) => {
+            alert('Button clicked!');
+        });
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Download Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-100 font-['SF_Pro_Display']">
+    <div class="w-80 p-4 bg-white shadow-lg rounded-2xl text-center">
+        <img src="https://i.ytimg.com/vi/8CX_Pr-DlL0/maxresdefault.jpg" alt="Album Cover"
+            class="w-full object-cover h-32 mx-auto rounded-lg mb-3">
+        <h2 class="text-lg font-semibold">20 min of songs to boost your Aura 🔥(Phonk)</h2>
+        <p class="text-sm text-gray-500">AuraXtreme</p>
+        <div class="w-full bg-gray-200 h-2 rounded-full mt-4">
+            <div id="progress" class="h-2 bg-blue-500 rounded-full w-0"></div>
+        </div>
+        <p class="percent text-sm text-gray-500">0%</p>
+        <button id="downloadBtn" class="w-full mt-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Download
+            Song</button>
+    </div>
+
+    <script>
+        const downloadBtn = document.getElementById('downloadBtn');
+        const progressBar = document.getElementById('progress');
+        const percentText = document.querySelector('.percent');
+        const h2 = document.querySelector('h2');
+        const h2Limit = h2.innerText;
+
+        const h2Text = h2Limit.split(' ').slice(0, 5).join(' ') + '...';
+        h2.innerText = h2Text;
+
+        let grow = 0;
+        let interval;
+
+        downloadBtn.addEventListener("click", () => {
+            downloadBtn.innerText = "Downloading...";
+            downloadBtn.style.pointerEvents = "none";
+            interval = setInterval(() => {
+                if (grow < 100) {
+                    grow++;
+                    percentText.innerText = grow + '%';
+                    progressBar.style.width = grow + '%';
+                    console.log(grow);
+                }
+                else {
+                    clearInterval(interval);
+                    downloadBtn.innerText = "Download Completed";
+                    percentText.innerText = '100%';
+                    progressBar.style.width = '100%';
+                    downloadBtn.style.pointerEvents = "all";
+                }
+            }, 100)
+
+        });
+    </script>
+
+</body>
+
+</html>
+
+<!-- using setTimeOut for frined request -->
+<!-- making downloading bar -->

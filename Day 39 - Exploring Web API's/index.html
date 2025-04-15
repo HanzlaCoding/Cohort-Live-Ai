@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Request Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-100 font-['SF_Pro_Display']">
+    <div class="w-72 p-4 bg-white shadow-lg rounded-2xl text-center">
+        <img src="https://images.unsplash.com/photo-1742766445151-bff5eb7173d2?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Profile Picture" class="w-24 h-24 mx-auto rounded-full mb-3">
+        <h2 class="text-lg font-semibold">John Doe</h2>
+        <button class="w-full mt-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Send friend Request</button>
+    </div>
+
+    <script>
+        const btn = document.querySelector('button');
+
+
+        let flag = 1;
+        btn.addEventListener("click", () => {
+            btn.innerHTML = "Sending Request...";
+            if (flag == 1) {
+                setTimeout(() => {
+                    btn.innerHTML = "Friend";
+                    btn.innerHTML = "Unfriend";
+                }, 3000)
+                flag = 0;
+            }
+
+            else {
+                btn.innerHTML = "Send Friend Request";
+                flag = 1;
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+<!-- using setTimeOut for frined request -->
+<!-- making downloading bar -->
