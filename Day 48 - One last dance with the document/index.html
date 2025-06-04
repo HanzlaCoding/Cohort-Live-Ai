@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Webpage</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Navbar -->
+    <nav class="bg-gray-100 dark:bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-lg font-bold">My Website</a>
+            <div>
+                <button id="theme-toggle" class="px-4 py-2 rounded bg-blue-500 text-white">Toggle Dark Mode</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold mb-4">Welcome to My Website</h1>
+        <p class="mb-8">This is a modern webpage with dark and light mode themes.</p>
+        <div class="bg-cover bg-center h-64" style="background-image: url('https://source.unsplash.com/random')"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-800 p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 My Website. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle Script
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+        });
+    </script>
+</body>
+
+</html>
+
+<!-- location.href
+     location.reload() 
+     history.back()
+     history.forward()
+     navigator.onLine
+     navigator.about-->
+<!-- 
+Local Storage=>
+                This is the storage that is available to the browser for storing data. It is persistent and can be accessed across sessions.
+                localStorage.setItem(key, value);
+                localStorage.getItem(key);
+                localStorage.removeItem(key);
+                localStorage.clear();
+                josn.stringify()
+                json.parse()
+ Session Storage
+                Session storage is similar to local storage, but it is only available for the duration of the page session. It is cleared when the page session ends.
+ Cookie
+        document.cookie = "key=value; expires=expiration_date; path=/";
+
+ classlists=>
+                classList.add("className");
+                classList.remove("className");
+                classList.toggle("className");
+                classList.contains("className");
+                classList.replace("oldClassName", "newClassName");
+                classList.value; // returns a string of all classes
+                classList.length; // returns the number of classes
+                classList.item(index); // returns the class at the specified index
+-->

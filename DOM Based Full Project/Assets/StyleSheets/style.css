@@ -1,0 +1,198 @@
+@font-face {
+  font-family: Aeonik-bold;
+  font-weight: 800;
+  src: url(../Fonts/AeonikTRIAL-Bold.otf);
+}
+@font-face {
+  font-family: Aeonik-light;
+  font-weight: 300;
+  src: url(../Fonts/AeonikTRIAL-Light.otf);
+}
+@font-face {
+  font-family: Aeonik-Regular;
+  font-weight: 500;
+  src: url(../Fonts/AeonikTRIAL-Regular.otf);
+}
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #22c55e;
+  --primary-text-color: #111827;
+  --seconday-text-color: #6b7280;
+  --bg-color: #212121;
+  --text-color: #e5e5e5;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Sf Pro Display";
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--bg-color);
+  padding: 1rem 2rem;
+}
+
+main nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 0px 1.5rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+}
+main nav h3 {
+  font-size: 1.5rem;
+  color: var(--primary-text-color);
+}
+main nav button {
+  font-size: 1rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+}
+
+section.main-section {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: #000;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  color: var(--text-color);
+  background-image: url(../Images/minecraft-minecraft-dungeons-ocean-view-minecraft-dungeons-hidden-depths-4k-hd-wallpaper-d8565d58c0f08c58c04c118e68f2d44a.jpg);
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.main-section .part1 {
+  line-height: 3.5rem;
+}
+section.main-section .part2 {
+  line-height: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+section.main-section .part2 h4 {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  color: #000;
+}
+section.main-section h1 {
+  font-size: 4.5rem;
+}
+section.main-section p {
+  font-size: 1rem;
+}
+
+section.main-cards {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 1rem 0rem;
+}
+section.main-cards .elem {
+  background-color: #fff;
+  position: relative;
+  width: 250px;
+  height: 260px;
+  border-radius: 1rem;
+  overflow: hidden;
+  color: var(--text-color);
+}
+section.main-cards .elem h2 {
+  position: absolute;
+  bottom: 0;
+  padding: 1rem;
+  text-align: center;
+  font-size: 2.5rem;
+  mix-blend-mode: screen;
+  width: 100%;
+  z-index: 10;
+}
+section.main-cards .elem img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+  filter: brightness(0.8);
+}
+section.main-cards .elem img:hover {
+  transform: scale(1.1);
+  filter: brightness(0.5);
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+  main nav {
+    padding: 0.8rem;
+  }
+  main nav h3 {
+    font-size: 1.2rem;
+  }
+  main nav button {
+    white-space: nowrap;
+    text-align: center;
+  }
+  main section.main-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  main section.main-cards .elem {
+    width: 100%;
+    max-width: 370px;
+    margin-bottom: 1rem;
+  }
+  main section.main-section {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+  main section.main-section .part1 {
+    line-height: 3.5rem;
+  }
+  main section.main-section .part1 h1 {
+    font-size: 5rem;
+  }
+  main section.main-section .part1 h2 {
+    font-size: 1.8rem;
+  }
+  main section.main-section .part1 h3 {
+    font-size: 1.4rem;
+  }
+  main section.main-section .part2 {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--bg-color);
+    line-height: 2rem;
+  }
+}/*# sourceMappingURL=style.css.map */
