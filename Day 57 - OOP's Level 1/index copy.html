@@ -3,186 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Theme Library Management</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Sleek Library Management</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1a202c; /* Deep dark background */
-            color: #e2e8f0; /* Light text for contrast */
         }
-        .main-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #2d3748; /* Slightly lighter dark for main card */
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Deeper shadow for dark theme */
-            border: 1px solid #4a5568; /* Subtle dark border */
+
+        /* Custom scrollbar for the book list - designed for dark theme */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px; /* Width of the scrollbar */
         }
-        .section-card {
-            background-color: #4a5568; /* Lighter dark for individual sections */
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for cards */
-            border: 1px solid #667e96; /* Distinct dark border */
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1f2937; /* bg-gray-800 equivalent - track color */
+            border-radius: 10px; /* Rounded corners for the track */
         }
-        .book-item {
-            padding: 12px 0;
-            border-bottom: 1px solid #667e96; /* Lighter divider in dark theme */
-            display: flex;
-            justify-content: space-between;
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #4b5563; /* bg-gray-600 equivalent - thumb color */
+            border-radius: 10px; /* Rounded corners for the thumb */
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #6b7280; /* Darker on hover */
+        }
+
+        /* Hide the default read status checkbox */
+        #bookReadStatus {
+            display: none;
+        }
+
+        /* Style the custom checkbox label */
+        .custom-checkbox-label {
+            display: inline-flex;
             align-items: center;
-            font-size: 0.95rem;
+            cursor: pointer;
+            user-select: none; /* Prevent text selection */
+            color: #d1d5db; /* text-gray-300 */
         }
-        .book-item:last-child {
-            border-bottom: none;
-        }
-        input[type="text"], input[type="number"] {
-            padding: 10px;
-            border: 1px solid #667e96; /* Dark input border */
-            border-radius: 6px;
-            font-size: 0.95rem;
-            background-color: #374151; /* Dark input background */
-            color: #e2e8f0; /* Light text in input */
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        input[type="text"]:focus, input[type="number"]:focus {
-            border-color: #06B6D4; /* Cyan focus border */
-            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3); /* Cyan focus ring */
-            background-color: #4a5568; /* Slightly brighter on focus */
-        }
-        button {
-            padding: 10px 18px;
-            font-weight: 600;
-            border-radius: 6px;
-            transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Buttons also have subtle shadow */
-        }
-        button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-        button:active {
-            transform: translateY(0);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-        }
-        /* Specific button colors for dark theme */
-        .btn-details {
-            background-color: #3b82f6; /* Dynamic Blue */
-            color: white;
-        }
-        .btn-details:hover { background-color: #2563eb; }
 
-        .btn-add {
-            background-color: #10B981; /* Vibrant Green */
-            color: white;
+        /* Custom checkmark box */
+        .custom-checkbox-label::before {
+            content: '';
+            display: inline-block;
+            width: 1.25rem; /* Equivalent to w-5 */
+            height: 1.25rem; /* Equivalent to h-5 */
+            border: 2px solid #6b7280; /* border-gray-500 */
+            background-color: #374151; /* bg-gray-700 */
+            border-radius: 0.25rem; /* rounded-md */
+            margin-right: 0.5rem; /* mr-2 */
+            transition: all 0.2s ease-in-out;
         }
-        .btn-add:hover { background-color: #059669; }
 
-        .btn-toggle-status {
-            background-color: #8B5CF6; /* Deep Purple */
-            color: white;
+        /* Change checkbox style when checked */
+        #bookReadStatus:checked + .custom-checkbox-label::before {
+            background-color: #10b981; /* bg-emerald-500 */
+            border-color: #059669; /* border-emerald-600 */
+            content: '✓'; /* Checkmark */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: bold;
         }
-        .btn-toggle-status:hover { background-color: #7C3AED; }
 
-        .status-read {
-            color: #34D399; /* Bright Green for Read */
-        }
-        .status-not-read {
-            color: #F87171; /* Soft Red for Not Read */
+        /* Focus style for inputs */
+        input:focus {
+            outline: none;
+            border-color: #0ea5e9; /* Sky 500 */
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.5); /* Sky 500 with 50% opacity */
         }
     </style>
 </head>
-<body class="bg-gray-900">
-    <div class="main-container">
-        <h1 class="text-4xl font-bold mb-8 text-white text-center">Library Dashboard</h1>
+<body class="bg-gray-950 text-gray-200 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-6xl p-8 bg-gray-900 rounded-2xl shadow-xl border border-gray-800 backdrop-blur-sm bg-opacity-90">
+        <h1 class="text-6xl font-extrabold mb-12 text-white text-center tracking-tight drop-shadow-lg">
+            <span class="bg-gradient-to-r from-emerald-400 to-cyan-500 text-transparent bg-clip-text">Library Dashboard</span>
+        </h1>
 
-        <div class="flex flex-col md:flex-row gap-6">
+        <div class="lg:flex lg:flex-row gap-10">
+            <section class="flex-grow bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700 transition duration-300 hover:shadow-2xl">
+                <h2 class="text-3xl font-bold mb-8 text-gray-100 border-b border-gray-700 pb-4">Available Books</h2>
+                <ul id="booksList" class="list-none p-0 max-h-[400px] overflow-y-auto pr-4 custom-scrollbar space-y-4">
+                    <li class="book-item flex justify-between items-center bg-gray-700 p-4 rounded-lg shadow-md transition duration-200 hover:bg-gray-600">
+                        <div class="flex-grow mr-4">
+                            <span class="font-medium text-gray-100 text-lg">1. The Great Gatsby</span>
+                            <p class="text-sm text-gray-400">F. Scott Fitzgerald</p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <button class="details-btn px-4 py-2 text-sm font-semibold rounded-full bg-cyan-600 text-white shadow-md transition duration-200 ease-in-out hover:bg-cyan-700 hover:scale-105 active:scale-100 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-75">Details</button>
+                            <span class="font-bold text-xs text-emerald-400 flex items-center gap-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                </svg>
+                                Read
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+                <p id="booksCount" class="mt-8 text-base text-gray-400 text-right">Showing 0 of 0 books.</p>
+            </section>
 
-            <div class="md:w-2/3 flex flex-col gap-6">
-                <section class="section-card flex-grow">
-                    <h2 class="text-2xl font-semibold mb-4 text-gray-100">Available Books</h2>
-                    <ul class="list-none p-0 max-h-80 overflow-y-auto pr-2 custom-scrollbar"> <li class="book-item">
-                            <span class="font-medium text-gray-200 flex-grow mr-4">1. The Great Gatsby</span>
-                            <div class="flex items-center space-x-3">
-                                <button class="px-3 py-1 text-sm btn-details">Details</button>
-                                <span class="font-semibold text-xs status-read">✅ Read</span>
-                            </div>
-                        </li>
-                        <li class="book-item">
-                            <span class="font-medium text-gray-200 flex-grow mr-4">2. To Kill a Mockingbird</span>
-                            <div class="flex items-center space-x-3">
-                                <button class="px-3 py-1 text-sm btn-details">Details</button>
-                                <span class="font-semibold text-xs status-not-read">❌ Not Read</span>
-                            </div>
-                        </li>
-                        <li class="book-item">
-                            <span class="font-medium text-gray-200 flex-grow mr-4">3. 1984</span>
-                            <div class="flex items-center space-x-3">
-                                <button class="px-3 py-1 text-sm btn-details">Details</button>
-                                <span class="font-semibold text-xs status-not-read">❌ Not Read</span>
-                            </div>
-                        </li>
-                         <li class="book-item">
-                            <span class="font-medium text-gray-200 flex-grow mr-4">4. Pride and Prejudice</span>
-                            <div class="flex items-center space-x-3">
-                                <button class="px-3 py-1 text-sm btn-details">Details</button>
-                                <span class="font-semibold text-xs status-read">✅ Read</span>
-                            </div>
-                        </li>
-                        <li class="book-item">
-                            <span class="font-medium text-gray-200 flex-grow mr-4">5. The Hobbit</span>
-                            <div class="flex items-center space-x-3">
-                                <button class="px-3 py-1 text-sm btn-details">Details</button>
-                                <span class="font-semibold text-xs status-not-read">❌ Not Read</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <p class="mt-4 text-sm text-gray-400">Showing 5 of 5 books.</p>
-                </section>
-
-                <section class="section-card">
-                    <h2 class="text-2xl font-semibold mb-4 text-gray-100">Add New Book</h2>
-                    <form class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label for="bookName" class="block text-gray-300 text-sm font-medium mb-1">Book Name:</label>
-                            <input type="text" id="bookName" class="w-full" placeholder="e.g., The Lord of the Rings">
-                        </div>
-                        <div>
-                            <label for="authorName" class="block text-gray-300 text-sm font-medium mb-1">Author:</label>
-                            <input type="text" id="authorName" class="w-full" placeholder="e.g., J.R.R. Tolkien">
-                        </div>
-                        <div>
-                            <label for="isbn" class="block text-gray-300 text-sm font-medium mb-1">ISBN:</label>
-                            <input type="text" id="isbn" class="w-full" placeholder="e.g., 978-0618260274">
-                        </div>
-                        <div>
-                            <label for="price" class="block text-gray-300 text-sm font-medium mb-1">Price:</label>
-                            <input type="number" id="price" class="w-full" placeholder="e.g., 19.99" step="0.01">
-                        </div>
-                        <div class="sm:col-span-2">
-                            <button class="w-full btn-add">Add Book</button>
-                        </div>
-                    </form>
-                </section>
-            </div>
-
-            <div class="md:w-1/3 flex flex-col gap-6">
-                <section class="section-card flex-grow">
-                    <h2 class="text-2xl font-semibold mb-4 text-gray-100">Book Details</h2>
-                    <div class="bg-gray-700 rounded-md p-4 border border-gray-600"> <p class="mb-2"><span class="font-semibold text-gray-200">Title:</span> <span class="text-gray-300">The Great Gatsby</span></p>
-                        <p class="mb-2"><span class="font-semibold text-gray-200">Author:</span> <span class="text-gray-300">F. Scott Fitzgerald</span></p>
-                        <p class="mb-2"><span class="font-semibold text-gray-200">ISBN:</span> <span class="text-gray-300">9780743273565</span></p>
-                        <p class="mb-2"><span class="font-semibold text-gray-200">Price:</span> <span class="text-gray-300">$10.99</span></p>
-                        <p class="mb-4"><span class="font-semibold text-gray-200">Read Status:</span> <span class="status-read">✅ Read</span></p>
-                        <button class="w-full btn-toggle-status">Toggle Read Status</button>
+            <section class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700 flex-none w-full lg:w-96 transition duration-300 hover:shadow-2xl mt-10 lg:mt-0">
+                <h2 class="text-3xl font-bold mb-8 text-gray-100 border-b border-gray-700 pb-4">Add New Book</h2>
+                <form class="flex flex-col gap-5">
+                    <div>
+                        <label for="bookName" class="block text-gray-300 text-sm font-semibold mb-2">Book Name:</label>
+                        <input type="text" id="bookName" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 focus:ring-sky-500 focus:ring-2 transition duration-200" placeholder="e.g., The Lord of the Rings">
                     </div>
-                    <p class="mt-4 text-sm text-gray-400">Details for the selected book will appear here.</p>
-                </section>
-            </div>
-
+                    <div>
+                        <label for="authorName" class="block text-gray-300 text-sm font-semibold mb-2">Author:</label>
+                        <input type="text" id="authorName" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 focus:ring-sky-500 focus:ring-2 transition duration-200" placeholder="e.g., J.R.R. Tolkien">
+                    </div>
+                    <div>
+                        <label for="isbn" class="block text-gray-300 text-sm font-semibold mb-2">ISBN:</label>
+                        <input type="text" id="isbn" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 focus:ring-sky-500 focus:ring-2 transition duration-200" placeholder="e.g., 978-0618260274">
+                        <button class="details-btn-isbn px-4 py-1 mt-2 text-sm font-semibold rounded-full bg-emerald-600 text-white shadow-md transition duration-200 ease-in-out hover:bg-emerald-700 hover:scale-105 active:scale-100 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-75">Generate ISBN</button>
+                    </div>
+                    <div>
+                        <label for="price" class="block text-gray-300 text-sm font-semibold mb-2">Price:</label>
+                        <input type="number" id="price" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 focus:ring-sky-500 focus:ring-2 transition duration-200" placeholder="e.g., 19.99" step="0.01">
+                    </div>
+                    <div class="flex items-center mt-2">
+                        <input type="checkbox" id="bookReadStatus" class="form-checkbox h-5 w-5 text-emerald-500 rounded border-gray-500 focus:ring-emerald-500">
+                        <label for="bookReadStatus" class="custom-checkbox-label ml-2 text-gray-300 text-base">Book has been read</label>
+                    </div>
+                    <div>
+                        <button
+                            id="addBook"
+                            class="w-full py-3 mt-6 text-lg font-bold rounded-lg bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-xl transition duration-300 ease-in-out hover:from-emerald-600 hover:to-teal-700 hover:scale-105 active:scale-100 focus:outline-none focus:ring-4 focus:ring-emerald-500 focus:ring-opacity-50"
+                        >
+                            Add Book
+                        </button>
+                    </div>
+                </form>
+            </section>
         </div>
     </div>
 

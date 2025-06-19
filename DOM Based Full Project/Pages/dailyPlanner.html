@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<style>
+    .container {
+        padding: 0px 50px 20px;
+    }
+
+    .nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 0px 20px;
+    }
+
+    .nav h1 {
+        color: var(--text-color);
+        font-size: 2em;
+        color: #fff;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+
+    .nav button {
+        color: var(--text-color);
+        border: none;
+        border-radius: 5px;
+        background-color: red;
+        cursor: pointer;
+        padding: 10px 20px;
+        font-size: 1em;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .nav button a {
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .nav button:active {
+        scale: 0.95;
+    }
+</style>
+
+<body>
+
+    <main class="daily-planner w-full bg-gray-950 font-[SF_Pro_Display]">
+        <div class="container mx-auto p-4">
+            <div class="nav">
+                <h1 class="page-title">Your Personalized Daily Planner</h1>
+                <button><a href="../index.html">Go Back Home</a></button>
+            </div>
+            <div id="taskSlotsClutter"
+                class="bg-gray-900 min-h-screen p-4 rounded-lg shadow-lg flex flex-wrap justify-between items-start gap-8">
+
+            </div>
+        </div>
+
+        <script src="../Assets/JavaScript/dailyPlanner.js"></script>
+    </main>
+
+</body>
+
+</html>

@@ -5,8 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="Assets/StyleSheets/style.css">
+
 </head>
+
+<style>
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in {
+        animation: fade-in 0.8s ease-out both;
+    }
+</style>
 
 <body>
 
@@ -22,36 +42,55 @@
                 <h1>05:50:33</h1>
                 <h3>Tuesday, 27 May, 2025, week 22</h3>
             </div>
+            <div class="overlay"></div>
+
             <div class="part2">
-                <h4>Precipitation: 0%</h4>
-                <h4>Humidity: 30%</h4>
-                <h4>Wind: 6 km/h</h4>
+                <div class="weather-card w-60 text-center shadow-xl bg-white/10 p-4 backdrop-blur-sm rounded-2xl">
+                    <div
+                    class="relative px-10 py-8 rounded-2xl shadow-xl text-white animate-fade-in">
+                    <div class="text-4xl font-bold"> -- °C</div>
+                    <div class="text-xs bg-blue-500/20 px-2 py-1 rounded-full">
+                        Feels like: -- °C
+                    </div>
+                    <div class="text-sm font-semibold tracking-wide">City, Country</div>
+                    <div class="text-lg flex  items-center justify-center font-semibold">
+                        <img class="h-10" src="${icon}" alt="" />
+                        Mostly Sunny
+                    </div>
+                    
+                    <div class="text-md leading-6 text-white/90 w-full bg-blue-400/50 rounded-b-2xl">
+                        <div>Precipitation: <span class="font-medium"> 12 mm</span></div>
+                        <div>Humidity: <span class="font-medium">20 %</span></div>
+                            <div>Wind: <span class="font-medium">10 km/h</span></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-
+        
         <section class="main-cards">
             <div class="elem todo">
                 <h2>To-do List</h2>
-                <img src="https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg" alt="">
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExejU0cThocGdtM3p5Nm9rNG1heXlqZmZsZ3ZtdHowN2lleGJ0cGdidyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kFt36Dvf7xLZuNQbA4/giphy.gif" alt="">
             </div>
             <div class="elem planer">
                 <h2>Daily Planer</h2>
-                <img src="https://images.unsplash.com/photo-1655704705321-3ac52dc67f70?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzJmNndmeDBmc254dm9lNDZtOXBsYTB0azJwMGNyZ293NzV3Y3gweSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/sCZkEEBoXOupz2BJcy/giphy.webp"
                     alt="">
             </div>
             <div class="elem motiv">
                 <h2>Motivation</h2>
-                <img src="https://img.freepik.com/free-photo/3d-view-holographic-layering_52683-117365.jpg?semt=ais_hybrid&w=740"
+                <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3NjemFxNmNpbjVybnJzdWUxN2pyYmYybzkweTB2MmlkazNlc3BsZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/xT4uQsCs8bnBLY7BRK/200.webp"
                     alt="">
             </div>
             <div class="elem pomo">
                 <h2>Pomodoro Timer</h2>
-                <img src="https://media.istockphoto.com/id/1365826561/photo/abstract-minimal-modern-on-white-background-paper-minimal-concept-3d-render.jpg?s=612x612&w=0&k=20&c=d94GXCszLbdJfqSfmuzHnmsyzJrX9p7dcC0flpV6Z8o="
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWdta3k0cmg0eGtzZ3Z4bnZzazg0bzRmZjEwODNtY2N3NGhnZnk4ZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/DZQTjZtMVkqBpU07CQ/200.webp"
                     alt="">
             </div>
             <div class="elem goals">
                 <h2>Daily Goals</h2>
-                <img src="https://lh5.googleusercontent.com/v8sc6FSfh8LMyiJbEPAkWTPUHgPVxXBgRs1zPlmyJRkTlXJ_BOjHziYLAvSF7-9IrjIcamXOO6LOtyADrIgxCAQuatyge-uBKiWADTcIls_fawyFsEfHktdrm9SzMiCmrsVu3iIn5YOcE5gsXwzkFy3EQeW9wf4jd2f9h1UurA1AHQ0m5bgP7X6Jag"
+                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHJieXR3bGhkaDZteTRjczd0aWdhMzhqdWJuYThlc3lkcGZsc2h0ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Y2y9IpjbPDakvK6LrR/giphy.gif"
                     alt="">
             </div>
         </section>

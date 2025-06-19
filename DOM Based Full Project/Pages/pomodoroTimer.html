@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .glass-panel {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+        }
+
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        .tooltip {
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .button-wrapper:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-4 font-[SF] text-white">
+    <div class="glass-panel p-6 flex flex-col items-center gap-6 w-80">
+        <!-- Timer Display with Controls -->
+        <div class="relative flex flex-col items-center">
+            <div class="relative flex justify-center items-center mb-4">
+                <svg class="w-48 h-48">
+                    <circle class="progress-ring__circle stroke-current text-gray-500/30" stroke-width="8"
+                        fill="transparent" r="90" cx="100" cy="100"></circle>
+                    <circle class="progress-ring__circle stroke-current text-teal-400" stroke-width="8"
+                        fill="transparent" r="90" cx="100" cy="100" stroke-dasharray="565.48" stroke-dashoffset="0">
+                    </circle>
+                </svg>
+                <div class="absolute text-center">
+                    <p class="text-xs uppercase tracking-wider">Focus</p>
+                    <p class="text-4xl font-light">15m 24s</p>
+                    <span class="text-xs">...</span>
+                </div>
+            </div>
+            <div class="flex gap-3 relative">
+                <div class="button-wrapper">
+                    <button
+                        class="w-10 h-10 rounded-full bg-gray-700/50 flex items-center justify-center hover:bg-gray-600/50">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                        <span class="sr-only">Start</span>
+                    </button>
+                    <span class="tooltip">Start</span>
+                </div>
+                <div class="button-wrapper">
+                    <button
+                        class="w-10 h-10 rounded-full bg-gray-700/50 flex items-center justify-center hover:bg-gray-600/50">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m-3-3h6">
+                            </path>
+                        </svg>
+                        <span class="sr-only">Pause</span>
+                    </button>
+                    <span class="tooltip">Pause</span>
+                </div>
+                <div class="button-wrapper">
+                    <button
+                        class="w-10 h-10 rounded-full bg-gray-700/50 flex items-center justify-center hover:bg-gray-600/50">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.001 8.001 0 01-15.356-2m15.356 2H15">
+                            </path>
+                        </svg>
+                        <span class="sr-only">Reset</span>
+                    </button>
+                    <span class="tooltip">Reset</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mode Panel -->
+        <div class="glass-panel p-4">
+            <div class="text-sm flex flex-col items-center text-center">
+                <p class="mb-2 font-semibold text-gray-400 px-4 py-1 bg-gray-700/50 rounded-full text-center w-fit">Main Goal</p>
+                <span class="float-right">Complete this UI Project & boom in your startup at the age of 18😎.</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

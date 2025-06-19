@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+    <div class="relative bg-white text-gray-900 rounded-2xl shadow-lg p-4 max-w-sm mx-auto overflow-hidden transform hover:scale-105 transition-all duration-300 ease-in-out h-64 w-80 animate-pulse-once">
+        <div class="absolute inset-0 bg-gray-100 opacity-10 rounded-2xl z-0"></div>
+    
+        <div class="relative z-10 flex flex-col items-center">
+            <div class="flex items-center mb-2">
+                <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a7 7 0 017 7c0 3.13-2.04 5.78-4.85 6.71l-.15.08-.15-.08C9.04 14.78 7 12.13 7 9a7 7 0 015-6.71zm0 2a5 5 0 00-5 5c0 2.21 1.44 4.07 3.43 4.71l.14.07.14-.07C15.56 13.07 17 11.21 17 9a5 5 0 00-5-5zm0 2a3 3 0 013 3c0 1.31-.84 2.42-2 2.83v-5.66c.56-.21 1-.21 1.5 0v5.66c-1.16-.41-2-1.52-2-2.83a3 3 0 013-3zm0 1a2 2 0 00-2 2c0 .55.22 1.05.57 1.41l-.14-.07c-.35-.36-.57-.86-.57-1.41a2 2 0 012-2zm0 1a1 1 0 011 1c0 .28-.11.54-.29.73l-.14-.07c-.18-.19-.29-.45-.29-.73a1 1 0 011-1z"></path>
+                </svg>
+                <span class="text-lg font-semibold text-gray-700">Lahore, Pakistan</span>
+            </div>
+    
+            <div class="flex items-center justify-center mb-4">
+                <svg class="w-16 h-16 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a7 7 0 017 7c0 3.13-2.04 5.78-4.85 6.71l-.15.08-.15-.08C9.04 14.78 7 12.13 7 9a7 7 0 015-6.71zm0 2a5 5 0 00-5 5c0 2.21 1.44 4.07 3.43 4.71l.14.07.14-.07C15.56 13.07 17 11.21 17 9a5 5 0 00-5-5zm0 2a3 3 0 013 3c0 1.31-.84 2.42-2 2.83v-5.66c.56-.21 1-.21 1.5 0v5.66c-1.16-.41-2-1.52-2-2.83a3 3 0 013-3zm0 1a2 2 0 00-2 2c0 .55.22 1.05.57 1.41l-.14-.07c-.35-.36-.57-.86-.57-1.41a2 2 0 012-2zm0 1a1 1 0 011 1c0 .28-.11.54-.29.73l-.14-.07c-.18-.19-.29-.45-.29-.73a1 1 0 011-1z"></path>
+                </svg>
+                <div>
+                    <p class="text-4xl font-bold">45.1°C</p>
+                    <p class="text-sm text-gray-600">Mostly Cloudy</p>
+                </div>
+            </div>
+    
+            <div class="flex justify-around w-full text-sm text-gray-700">
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>9.7 km/h</span>
+                </div>
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11v2m0 4h.01m-3.99 0h.01M7 11a1 1 0 100-2h8a1 1 0 100 2m-1 4a1 1 0 11-2 0 1 1 0 012 0m-1 4a1 1 0 100-2 1 1 0 000 2zm10-6a1 1 0 100-2 1 1 0 000 2zm-1 4a1 1 0 11-2 0 1 1 0 012 0m-1 4a1 1 0 100-2 1 1 0 000 2z"></path>
+                    </svg>
+                    <span>59%</span>
+                </div>
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343M15 15l4.243 4.243m-8.486-8.485l4.242 4.242m-4.242-4.242l4.242 4.242"></path>
+                    </svg>
+                    <span>17%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .animate-pulse-once {
+            animation: pulse 1s ease-out;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+    </style>
+    
+    <style>
+        .animate-pulse-once {
+            animation: pulse 1s ease-out;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+    </style>
+</body>
+</html>

@@ -1,22 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo Tasks</title>
     <style>
         :root {
-            --primary-color: #4f46e5;       /* Blue */
-            --secondary-color: #22c55e;     /* Green */
-            --primary-text-color: #111827;  /* Dark Gray */
-            --secondary-text-color: #6b7280;/* Medium Gray */
-            --bg-color: #212121;           /* Dark background */
-            --text-color: #e5e5e5;         /* Light text */
-            --card-bg-color: #2c2c2c;      /* Slightly lighter card background */
-            --input-bg-color: #3a3a3a;     /* Input background */
-            --border-color: #4f4f4f;       /* Border color for inputs/cards */
-            --hover-primary-color: #3b35be; /* Darker shade of primary-color for hover */
-            --hover-secondary-color: #1e9d4d; /* Darker shade of secondary-color for hover */
+            --primary-color: #4f46e5;
+            /* Blue */
+            --secondary-color: #22c55e;
+            /* Green */
+            --primary-text-color: #111827;
+            /* Dark Gray */
+            --secondary-text-color: #6b7280;
+            /* Medium Gray */
+            --bg-color: #212121;
+            /* Dark background */
+            --text-color: #e5e5e5;
+            /* Light text */
+            --card-bg-color: #2c2c2c;
+            /* Slightly lighter card background */
+            --input-bg-color: #3a3a3a;
+            /* Input background */
+            --border-color: #4f4f4f;
+            /* Border color for inputs/cards */
+            --hover-primary-color: #3b35be;
+            /* Darker shade of primary-color for hover */
+            --hover-secondary-color: #1e9d4d;
+            /* Darker shade of secondary-color for hover */
         }
 
         /* No font-family defined here as per your request */
@@ -35,14 +47,15 @@
             align-items: center;
             min-height: 100vh;
             padding: 40px 20px;
-            overflow: hidden; /* Hide body scrollbar */
+            overflow: hidden;
         }
 
         .page-title {
             color: var(--primary-color);
             margin-bottom: 40px;
             font-size: 3.5em;
-            letter-spacing: 2px;
+            font-weight: 700;
+            letter-spacing: -2px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
         }
 
@@ -74,7 +87,8 @@
         .task-form {
             display: flex;
             flex-direction: column;
-            flex-grow: 1; /* Allow form to take available space in the input panel */
+            flex-grow: 1;
+            /* Allow form to take available space in the input panel */
         }
 
         .input-group {
@@ -121,7 +135,12 @@
             font-weight: bold;
             width: 100%;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            margin-top: auto; /* Push button to the bottom of the form/panel */
+            margin-top: auto;
+            /* Push button to the bottom of the form/panel */
+        }
+
+        .add-task-btn:active {
+            transform: translateY(5px);
         }
 
         .add-task-btn:hover {
@@ -138,10 +157,12 @@
             max-height: calc(100vh - 80px - 40px - 30px);
             overflow-y: auto;
             padding-right: 10px;
-            background-color: var(--card-bg-color); /* Apply card bg to the scrollable panel itself */
+            background-color: var(--card-bg-color);
+            /* Apply card bg to the scrollable panel itself */
             border-radius: 10px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            padding-left: 30px; /* Adjust padding to match input panel */
+            padding-left: 30px;
+            /* Adjust padding to match input panel */
             padding-top: 30px;
             padding-bottom: 30px;
         }
@@ -167,7 +188,8 @@
         }
 
         .task-item {
-            background-color: var(--bg-color); /* Task item background is slightly darker */
+            background-color: var(--bg-color);
+            /* Task item background is slightly darker */
             padding: 20px 25px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -177,7 +199,8 @@
             flex-shrink: 0;
         }
 
-        .task-item .task-name {
+        .task-item .task-name,
+        summary {
             font-size: 1.3em;
             font-weight: bold;
             color: var(--text-color);
@@ -185,6 +208,30 @@
             text-align: left;
             margin-right: 15px;
             overflow-wrap: break-word;
+        }
+
+        .noAvailable {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .noAvailable p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .noAvailable img {
+            height: 150px;
+        }
+
+        p {
+            color: var(--secondary-text-color);
+            font-size: 0.9em;
+            margin-top: 10px;
         }
 
         .mark-completed-btn {
@@ -205,6 +252,38 @@
             transform: translateY(-1px);
         }
 
+        .nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 50px;
+        }
+
+        .nav button {
+            color: var(--text-color);
+            border: none;
+            border-radius: 5px;
+            background-color: red;
+            cursor: pointer;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav button a {
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .nav button:active {
+            scale: 0.95;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 900px) {
             .container {
@@ -212,7 +291,8 @@
                 align-items: center;
             }
 
-            .input-panel, .task-list-panel {
+            .input-panel,
+            .task-list-panel {
                 width: 100%;
                 max-width: 500px;
                 margin-bottom: 20px;
@@ -220,9 +300,11 @@
 
             .task-list-panel {
                 margin-bottom: 0;
-                max-height: 400px; /* Example fixed height for scrollable area when stacked */
+                max-height: 400px;
+                /* Example fixed height for scrollable area when stacked */
                 padding-right: 10px;
-                padding-left: 30px; /* Ensure padding is consistent for stacked */
+                padding-left: 30px;
+                /* Ensure padding is consistent for stacked */
                 padding-top: 30px;
                 padding-bottom: 30px;
             }
@@ -238,7 +320,9 @@
                 margin-bottom: 30px;
             }
 
-            .input-panel, .task-list-panel, .task-item {
+            .input-panel,
+            .task-list-panel,
+            .task-item {
                 padding: 20px;
             }
 
@@ -262,8 +346,12 @@
         }
     </style>
 </head>
+
 <body>
-    <h1 class="page-title">Todo Tasks</h1>
+    <div class="nav">
+        <h1 class="page-title">Your Personalized Task Todo</h1>
+        <button><a href="../index.html">Go Back Home</a></button>
+    </div>
 
     <div class="container">
         <div class="input-panel">
@@ -274,62 +362,20 @@
                 <div class="input-group">
                     <textarea id="enter-details" name="taskDetails" placeholder="Enter Details"></textarea>
                 </div>
+                <div class="mark-Imp">
+                    <input type="checkbox" id="mark-important" name="important">
+                    <label for="mark-important">Mark as Important</label>
+                </div>
                 <button type="submit" class="add-task-btn">Add Task</button>
             </form>
         </div>
 
         <div class="task-list-panel" id="task-list-panel">
-            <div class="task-item">
-                <span class="task-name">Gym Jao - morning workout session for an hour</span>
-                <button class="mark-completed-btn">Mark as Completed</button>
-            </div>
-            <div class="task-item">
-                <span class="task-name">Learn HTML & CSS advanced techniques with responsive design principles</span>
-                <button class="mark-completed-btn">Mark as Completed</button>
-            </div>
-            <div class="task-item">
-                <span class="task-name">Prepare presentation for client meeting on Monday morning at 10 AM sharp</span>
-                <button class="mark-completed-btn">Mark as Completed</button>
-            </div>
-            <div class="task-item">
-                <span class="task-name">Call John regarding project status update and discuss next steps for integration</span>
-                <button class="mark-completed-btn">Mark as Completed</button>
-            </div>
-            <div class="task-item">
-                <span class="task-name">Buy groceries: milk, eggs, bread, fresh fruits, vegetables, and chicken for dinner tonight.</span>
-                <button class="mark-completed-btn">Mark as Completed</button>
-            </div>
-            <div class="task-item">
-                <span class="task-name">Research new JavaScript framework (e.g., React, Vue, Svelte) for next project development, focus on performance.</span>
-                <button class="mark-completed-btn">Mark as Completed</button>
-            </div>
-            <div class="task-item">
-                <span class="task-name">Read chapter 5 of "Clean Code" book, focusing on function design and error handling.</span>
-                <button class="mark-completed-btn">Mark as Completed</button>
-            </div>
-            <div class="task-item">
-                <span class="task-name">Review pull requests from team members and provide constructive feedback.</span>
-                <button class="mark-completed-btn">Mark as Completed</button>
-            </div>
-            <div class="task-item">
-                <span class="task-name">Plan weekend trip to Murree, check weather forecast and book accommodation.</span>
-                <button class="mark-completed-btn">Mark as Completed</button>
-            </div>
-            <div class="task-item">
-                <span class="task-name">Update personal portfolio website with latest projects and testimonials.</span>
-                <button class="mark-completed-btn">Mark as Completed</button>
-            </div>
-            <div class="task-item">
-                <span class="task-name">Attend online webinar on advanced CSS animations and transitions, starts at 3 PM.</span>
-                <button class="mark-completed-btn">Mark as Completed</button>
-            </div>
-            <div class="task-item">
-                <span class="task-name">Prepare detailed report on Q2 sales performance for management review.</span>
-                <button class="mark-completed-btn">Mark as Completed</button>
-            </div>
+
         </div>
     </div>
 
     <script src="../Assets/JavaScript/todo.js"></script>
 </body>
+
 </html>

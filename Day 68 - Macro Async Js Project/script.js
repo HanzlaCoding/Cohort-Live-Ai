@@ -42,7 +42,7 @@ function myCode() {
                         >
                     </div>
                 
-                    <div class="flex-grow text-gray-200 w-full"> <div class="">
+                    <div class="flex-grow text-gray-200"> <div class="">
                             <h2 class="text-sm md:text-2xl font-bold text-white leading-tight">${name}</h2>
                             <p class="text-blue-400 text-base md:text-lg mt-1 md:mt-0">@${login}</p>
                         </div>
@@ -79,7 +79,7 @@ function myCode() {
     )
 }
 
-function geminiCode() {
+function updatedCode() {
     const searchBtn = document.querySelector('button');
     const searchInput = document.querySelector('#usernameInput');
     const loading = document.querySelector('#loadingAnimation')
@@ -90,19 +90,19 @@ function geminiCode() {
     searchBtn.addEventListener('click', () => {
         fetch(`https://api.github.com/users/${searchInput.value}`)
             .then((raw) => {
-                if (raw.status === 404 || raw.ok === false) {
-                    console.log(raw);
+                if (raw.status === 404 || raw.ok === false || searchInput.value.trim() === '') {
                     loading.style.display = 'none';
                     loadingDone = notFoundAnimation.style.display = 'block';
                     inside.innerHTML = loadingDone;
-                    userCard.textContent = ''
-                    location.reload()
+                    inside.classList.add('hidden')
+                    console.log(raw);
                     return;
                 }
                 return raw.json();
             })
             .then((data) => {
                 loading.style.display = 'none';
+                notFoundAnimation.style.display = 'none';
                 const {
                     avatar_url,
                     company,
@@ -115,8 +115,9 @@ function geminiCode() {
                     blog,
                     bio // Bio field bhi add kiya gaya hai
                 } = data;
-                userCard.innerHTML = `
-                <div class="flex-shrink-0 w-full m-auto">
+                userCard.classList.add('w-full')
+                inside.innerHTML = `
+                <div class="flex-shrink-0 m-auto">
                     <img
                         src=${avatar_url}
                         alt="Placeholder Avatar"
@@ -141,16 +142,16 @@ function geminiCode() {
                             <span class="text-gray-400">Followers: <span class="font-semibold text-white">${followers}</span></span>
                         </div>
                         <div class="items-center">
-                            <span class="text-gray-400">Location: <span class="font-semibold text-white">Placeholder City</span></span>
+                            <span class="text-gray-400">Location: <span class="font-semibold text-white">${location ? location : '<span class="text-red-400 font-semibold">No City</span><span>'}</span>
                         </div>
                     </div>
             
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm font-medium">
                         <div class="flex items-center">
-                            <span class="text-gray-400">Company: <span class="font-semibold text-white">Placeholder Inc.</span></span>
+                            <span class="text-gray-400">Company: <span class="font-semibold text-white">${company ? company : '<span class="text-red-400 font-semibold">No Company</span><span>'}</span></span>
                         </div>
                         <div class="flex items-center">
-                            <span class="text-gray-400">Blog: <a href="#" target="_blank" class="text-blue-400 hover:underline">${blog ? blog : 'No blog available...'}</a></span>
+                            <span class="text-gray-400">Blog: <a href=${blog} target="_blank" class="text-blue-400 hover:underline">${blog ? blog : 'No blog available...'}</a></span>
                         </div>
                     </div>
                 </div>
@@ -161,4 +162,4 @@ function geminiCode() {
     )
 }
 
-geminiCode();
+updatedCode();
