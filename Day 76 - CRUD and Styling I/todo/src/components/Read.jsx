@@ -37,7 +37,3 @@ const Read = ({ task, setTask }) => {
 };
 
 export default Read;
-
-{
-  /* <p className='text-sm text-zinc-500 font-semibold'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laboriosam.</p> */
-}
