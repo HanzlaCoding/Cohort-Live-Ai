@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { toast } from "react-toastify";
+import { todoContext } from "../Wrapper";
 
-const Read = ({ task, setTask }) => {
+const Read = () => {
+
+  const todoCont = useContext(todoContext);
+  const [task, setTask] = todoCont;
+  console.log(todoCont);
+  
+  
+
+
   const renderTask = task.map((task, id) => (
     <li key={id} className="text-white font-semibold">
       {task.title}

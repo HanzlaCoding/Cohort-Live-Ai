@@ -1,11 +1,17 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 import "./index.css";
+import Wrapper from "./Wrapper.jsx";
+import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
-    <>
-    <App />
-    <ToastContainer />
-    </>
+  <>
+    <BrowserRouter>
+      <Wrapper>
+        <App />
+        <ToastContainer />
+      </Wrapper>
+    </BrowserRouter>
+  </>
 );

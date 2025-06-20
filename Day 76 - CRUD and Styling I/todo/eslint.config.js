@@ -6,7 +6,6 @@ import reactRefresh, { rules } from 'eslint-plugin-react-refresh'
 export default [
   { ignores: ['dist'],
     rules: {
-      'no-console': 'warn',
       'no-debugger': 'warn',
       'react-refresh/only-export-components': 'off', // Disable this rule globally
     }
