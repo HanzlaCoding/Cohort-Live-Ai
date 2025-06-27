@@ -34,19 +34,10 @@ const Recpie = () => {
 
   return (
     <>
-      {renderRecpie || renderRecpie.length > 0 ? (
+      {renderRecpie && renderRecpie.length > 0 ? (
         renderRecpie
       ) : (
-        <div className="h-140 flex items-center justify-center">
-          <h1 className="text-5xl font-bold text-gray-700 font-[Inter]">
-            Recipe Not Found
-          </h1>
-          <img
-            className="h-20 ml-3 rounded-full"
-            src="https://i.pinimg.com/originals/4d/d7/60/4dd76056feee92a2f0e669afc2361678.gif"
-            alt=""
-          />
-        </div>
+        <iframe className="w-full h-100" src="https://lottie.host/embed/978691f1-a48f-4f14-9699-155c492a4276/p1NguTQ7d6.lottie"></iframe>
       )}
     </>
   );
