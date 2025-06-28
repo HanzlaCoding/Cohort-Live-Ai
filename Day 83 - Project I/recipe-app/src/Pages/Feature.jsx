@@ -80,7 +80,6 @@ const Feature = () => {
     const renderRecipes = dummyRecipes.map((item, idx) => {
         let {title, chefName, category, description, imageUrl} = item;
         return (
-        <>
         <div key={idx} className="card shrink-0 h-40 w-95 overflow-hidden rounded-lg bg-zinc-50 flex items-center justify-between gap-x-2 font-[inter]">
                 <img className='w-1/2 h-full object-cover rounded-xl' src={imageUrl} alt="" />
                 <div className="content flex py-2 px-2 flex-col gap-y-2">
@@ -95,12 +94,11 @@ const Feature = () => {
                 <button className='bg-orange-500 text-white px-3 py-2 rounded-full text-xs cursor-pointer flex items-center justify-center gap-x-2 hover:bg-orange-600 transition-colors'>View Recipe</button>
                 </div>
             </div>
-            </>
         )
     });
 
   return (
-    <section className="feature min-h-screen w-full">
+    <section className="feature min-h-screen w-full py-20">
         <h3 className='text-5xl font-[daffiys] text-center py-8'>Featured Recipes</h3>
 
         <div className="recipes-cards p-5 flex flex-wrap items-center gap-10">
