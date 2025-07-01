@@ -5,7 +5,7 @@ const Welcome = () => {
 
   const navigate = useNavigate();
   return (
-    <div className="content overflow-hidden w-full px-5 h-130 flex justify-center items-center">
+    <div className="content overflow-hidden w-full px-5 h-120 flex justify-center items-center">
       <div className="bg w-full h-full overflow-hidden rounded-2xl">
         <img className='w-full h-full object-cover blur-sm mix-blend-multiply' src="https://recipe-apl.netlify.app/static/media/cooking-background.a73b43bf.jpg" alt="" />
       </div>
