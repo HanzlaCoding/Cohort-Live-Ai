@@ -15,10 +15,14 @@ const Createrecpie = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (recpieData) => {
-    const newRecipe = { ...recpieData, id: data.length };
-    setData((prev) => [...prev, newRecipe]);
-
+  const onSubmit = (recipe) => {
+    const newRecipe = {
+      ...recipe,
+      id: (data?.length || 0) // Ensure data is an array and generate a unique id
+    };
+    const updatedRecipes = [...(data || []), newRecipe];
+    setData(updatedRecipes);
+    localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
     reset();
     navigate("/recpie");
   };

@@ -11,10 +11,22 @@ const RecipeDetail = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      image: "",
+      title: "",
+      chef: "",
+      category: "",
+      description: "",
+      ingredients: "",
+      instructions: "",
+    },
+  });
   const navigate = useNavigate();
 
   const recipe = data.find((item) => parseInt(id) === item.id);
+  console.log(recipe);
+  
 
   // Prefill form with recipe data
   useEffect(() => {
@@ -38,12 +50,14 @@ const RecipeDetail = () => {
         : item
     );
     setData(updatedData);
+    localStorage.setItem("recipes", JSON.stringify(updatedData)) || [];
     reset();
   };
 
   const deleteRecipe = () => {
     const updatedRecipe = data.filter((item) => item.id !== parseInt(id));
     setData(updatedRecipe);
+    localStorage.setItem("recipes", JSON.stringify(updatedRecipe)) || [];
     navigate("/recpie");
   };
 
@@ -59,21 +73,21 @@ const RecipeDetail = () => {
                 alt="Recipe"
                 className="w-full h-60 object-cover object-center rounded-md mb-4"
               />
-              <h2 className="text-2xl font-bold mb-2">{recipe.title}</h2>
+              <h2 className="text-2xl font-bold mb-2">{recipe?.title}</h2>
               <p className="text-gray-600 mb-1">
-                <strong>Chef:</strong> {recipe.chefName || "Unknown Chef"}
+                <strong>Chef:</strong> {recipe?.chefName || "Unknown Chef"}
               </p>
               <p className="text-gray-600 mb-1">
-                <strong>Category:</strong> {recipe.category || "Uncategorized"}
+                <strong>Category:</strong> {recipe?.category || "Uncategorized"}
               </p>
               <p className="text-gray-600 mb-3">
-                <strong>Description:</strong> {recipe.description || "No description available."}
+                <strong>Description:</strong> {recipe?.description || "No description available."}
               </p>
               <p className="text-gray-700 mb-2">
-                <strong>Ingredients:</strong> {recipe.ingredients || "No ingredients listed."}
+                <strong>Ingredients:</strong> {recipe?.ingredients || "No ingredients listed."}
               </p>
               <p className="text-gray-700">
-                <strong>Instructions:</strong> {recipe.instructions || "No instructions available."}
+                <strong>Instructions:</strong> {recipe?.instructions || "No instructions available."}
               </p>
             </div>
 
