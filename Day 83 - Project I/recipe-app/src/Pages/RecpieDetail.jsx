@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { mainContext } from "../Context/MainContext";
 import { useForm } from "react-hook-form";
@@ -25,10 +25,10 @@ const RecipeDetail = () => {
   const navigate = useNavigate();
 
   const recipe = data.find((item) => parseInt(id) === item.id);
-  console.log(recipe);
-  
+ const [Fav, setFav] = useState([
+   JSON.parse(localStorage.getItem("fav"))
+ ]);
 
-  // Prefill form with recipe data
   useEffect(() => {
     if (recipe) {
       reset({
@@ -61,6 +61,13 @@ const RecipeDetail = () => {
     navigate("/recpie");
   };
 
+  const favorite = JSON.parse(localStorage.getItem("fav")) || [];
+
+  const favHandler = () => {
+    favorite.push(recipe);
+    localStorage.setItem("fav",JSON.stringify(favorite));
+  }
+
   return (
     <>
       {recipe ? (
@@ -68,11 +75,21 @@ const RecipeDetail = () => {
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8">
             {/* Left Side: Recipe Display Card */}
             <div className="md:w-1/2 bg-white rounded-xl shadow-md overflow-hidden p-4">
+              <div className="image relative">
+                <div className="favorite absolute top-2 right-2">
+                  {
+                    Fav ?
+                    <i onClick={favHandler} className="ri-heart-3-fill text-red-500 text-4xl inline-block transition duration-300 ease-in-out hover:scale-125"></i>
+                    :
+                    <i className="ri-heart-3-line text-zinc-100 text-4xl inline-block transition duration-300 ease-in-out hover:scale-125"></i>
+                  }
+                </div>
               <img
                 src={recipe?.image || "https://source.unsplash.com/600x400/?food"}
                 alt="Recipe"
                 className="w-full h-60 object-cover object-center rounded-md mb-4"
               />
+              </div>
               <h2 className="text-2xl font-bold mb-2">{recipe?.title}</h2>
               <p className="text-gray-600 mb-1">
                 <strong>Chef:</strong> {recipe?.chefName || "Unknown Chef"}

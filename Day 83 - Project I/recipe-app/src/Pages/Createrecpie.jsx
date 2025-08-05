@@ -18,7 +18,8 @@ const Createrecpie = () => {
   const onSubmit = (recipe) => {
     const newRecipe = {
       ...recipe,
-      id: (data?.length || 0) // Ensure data is an array and generate a unique id
+      id: (data?.length || 0),
+      isFav:false 
     };
     const updatedRecipes = [...(data || []), newRecipe];
     setData(updatedRecipes);

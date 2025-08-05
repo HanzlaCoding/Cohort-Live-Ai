@@ -11,3 +11,5 @@ const connectDB = () => {
 }
 
 module.exports = connectDB;
+
+// Data kesa dikhega => Schema
