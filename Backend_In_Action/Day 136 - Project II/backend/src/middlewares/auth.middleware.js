@@ -1,7 +1,8 @@
 const userModel = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 
-async function authMiddleware(req, res, next) {
+async function authUser(req, res, next) {
+
   const token = req.cookies.token;
 
   if (!token) {
@@ -13,8 +14,8 @@ async function authMiddleware(req, res, next) {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const user = await userModel.findById({ _id: decoded.userId });
     req.user = user;
-    res.status(200).json({ message: "User login successfully!" });
-    next();
+    return next();
+    
   } 
   
   catch (error) {
@@ -23,5 +24,5 @@ async function authMiddleware(req, res, next) {
 }
 
 module.exports = {
-  authMiddleware,
+  authUser,
 };

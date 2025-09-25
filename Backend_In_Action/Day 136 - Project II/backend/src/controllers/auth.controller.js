@@ -65,7 +65,15 @@ async function loginController(req, res) {
   });
 }
 
+async function logoutController(req, res) {
+  res.clearCookie("token");
+  return res.status(200).json({
+    message: "Logout successful.",
+  });
+}
+
 module.exports = {
   registerController,
   loginController,
+  logoutController
 };

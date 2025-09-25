@@ -20,7 +20,7 @@ const generateCaption = async (base64ImageFile) => {
     model: "gemini-2.5-flash",
     contents: contents,
   });
-
+  
   return response.text;
 };
 

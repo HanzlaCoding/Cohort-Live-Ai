@@ -6,9 +6,9 @@ const postSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-  }
+  },
 });
 
-const Post = mongoose.model("post", postSchema);
+const postModel = mongoose.model("post", postSchema);
 
-module.exports = Post;
+module.exports = postModel;
