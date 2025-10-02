@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import axios from "axios";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [formData, setFormData] = useState({ username: "", password: "" });
+  const navigate = useNavigate();
+  const [register, setRegister] = useState(null);
+  
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -10,6 +15,21 @@ export default function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Register Data:", formData);
+
+    axios
+      .post("http://localhost:3000/api/auth/register", formData)
+      .then((response) => {
+        console.log("Registration Successful:", response.data);
+        navigate("/login");
+        setRegister(response);
+      })
+      .catch((error) => {
+        console.error(
+          "Registration Error:",
+          error.response ? error.response.data.message : error.message
+        );
+        setRegister(error.response);
+      });
   };
 
   return (
@@ -55,6 +75,34 @@ export default function Register() {
           >
             Register
           </button>
+
+          <div className="error">
+            <p className="text-sm text-red-500 mt-2 text-center">
+              {register && register.status !== 200
+                ? register.data.message
+                : ""}
+            </p>
+          </div>
+
+          <div className="register-here">
+            <p className="text-sm text-gray-600 mt-4 text-center">
+              Already have an account?
+              <br />
+              <Link to="/" className="text-purple-600 hover:underline">
+                Login Here.
+              </Link>
+            </p>
+          </div>
+
+          <div className="register-here">
+            <p className="text-sm text-gray-600 mt-4 text-center">
+              Don't remember your password?
+              <br />
+              <Link to="/" className="text-purple-600 hover:underline">
+                Reset your password?
+              </Link>
+            </p>
+          </div>
         </form>
       </div>
     </div>

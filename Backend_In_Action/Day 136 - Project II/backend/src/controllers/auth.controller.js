@@ -10,7 +10,7 @@ async function registerController(req, res) {
     username,
   });
 
-  console.log(isUserExist);
+  // Optionally add proper logging here in production
 
   if (isUserExist) {
     return res.status(409).json({
@@ -23,9 +23,18 @@ async function registerController(req, res) {
     password: await bcrypt.hash(password, 10),
   });
 
-  const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
+  const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET);
 
-  res.cookie("token", token);
+  res.cookie(
+    "token",
+    token,
+    {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+      expires: new Date(Date.now() + 8 * 3600000),
+    }
+  );
 
   return res.status(201).json({
     message: "user created successfully.",
@@ -48,7 +57,7 @@ async function loginController(req, res) {
   }
 
   const isPasswordValid = await bcrypt.compare(password, user.password);
-
+  
   if (!isPasswordValid) {
     return res.status(401).json({
       message: "Invalid credentials.",
@@ -57,11 +66,21 @@ async function loginController(req, res) {
 
   const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
 
-  res.cookie("token", token);
+  res.cookie(
+    "token",
+    token,
+    {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+      expires: new Date(Date.now() + 8 * 3600000),
+    } // 8 hours
+  );
 
   return res.status(200).json({
     message: "Login successful.",
     user,
+    token
   });
 }
 
@@ -75,5 +94,5 @@ async function logoutController(req, res) {
 module.exports = {
   registerController,
   loginController,
-  logoutController
+  logoutController,
 };

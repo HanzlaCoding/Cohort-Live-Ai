@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [formData, setFormData] = useState({ username: "", password: "" });
+  const [authorized, setAuthorized] = useState(null);
+    const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -10,12 +13,19 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3000/api/auth/login", formData)
+    axios
+      .post("http://localhost:3000/api/auth/login", formData)
       .then((response) => {
         console.log("Login Successful:", response.data);
+        navigate("/user-profile");
+        setAuthorized(true);
       })
       .catch((error) => {
-        console.error("Login Error:", error);
+        console.error(
+          "Login Error:",
+          error.response ? error.response.data.message : error.message
+        );
+        setAuthorized(false);
       });
   };
 
@@ -62,6 +72,19 @@ export default function Login() {
           >
             Login
           </button>
+
+          <div className="success-message text-zinc-400 text-sm mt-2">
+            {authorized? alert("Logged in successfully!") : "Invalid username or password."}
+          </div>
+
+          <div className="register-here">
+            <p className="text-sm text-gray-600 mt-4 text-center">
+              Don't have an account?{" "}
+              <Link to="/" className="text-purple-600 hover:underline">
+                Register here
+              </Link>
+            </p>
+          </div>
         </form>
       </div>
     </div>

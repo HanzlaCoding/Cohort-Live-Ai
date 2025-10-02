@@ -1,10 +1,10 @@
-import Login from "./Pages/Login";
+import Routing from "./Routes/Routing";
 
 const App = () => {
   return (
     <>
       <div className="font-[Inter]">
-        <Login />
+        <Routing />
       </div>
     </>
   );
