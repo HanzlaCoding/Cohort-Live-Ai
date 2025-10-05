@@ -84,6 +84,24 @@ async function loginController(req, res) {
   });
 }
 
+// get user
+async function getUserController(req, res) {
+  const userId = req.userId;
+
+  const user = await userModel.findById(userId);
+ 
+  if (!user) {  
+    return res.status(404).json({
+      message: "User not found.",
+    });
+  }
+
+  return res.status(200).json({
+    message: "User retrieved successfully.",
+    user,
+  });
+}
+
 async function logoutController(req, res) {
   res.clearCookie("token");
   return res.status(200).json({
@@ -95,4 +113,5 @@ module.exports = {
   registerController,
   loginController,
   logoutController,
+  getUserController
 };
