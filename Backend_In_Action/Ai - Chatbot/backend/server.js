@@ -1,11 +1,15 @@
-const app = require("./src/app");
-require("dotenv").config();
+const app = require("./src/app.js");
+const dotenv = require("dotenv");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
-const generateMessage = require("./src/services/ai.service");
+const generateMessage = require("./src/services/ai.service.js");
+
+dotenv.config();
 
 const httpServer = createServer();
 const io = new Server(httpServer);
+
+const chatHistory = [];
 
 io.on("connection", (socket) => {
   console.log("a user connected!");
@@ -15,11 +19,22 @@ io.on("connection", (socket) => {
   });
 
   socket.on("message", async (message) => {
-
     const response = await generateMessage(message);
-    socket.emit("response", response);
-    console.log(response);
     
+    chatHistory.push({
+      role: "user",
+      parts: { text: message },
+    });
+
+    socket.emit("response", response);
+
+    chatHistory.push({
+      role: "model",
+      parts: { text: response },
+    });
+
+    console.log(response);
+    console.log(chatHistory);
   });
 });
 
