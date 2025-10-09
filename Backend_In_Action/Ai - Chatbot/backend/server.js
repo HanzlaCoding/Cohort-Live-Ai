@@ -7,7 +7,13 @@ const generateMessage = require("./src/services/ai.service.js");
 dotenv.config();
 
 const httpServer = createServer();
-const io = new Server(httpServer);
+const io = new Server(httpServer, {
+  cors: {
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
+});
 
 const chatHistory = [];
 
@@ -18,20 +24,20 @@ io.on("connection", (socket) => {
     console.log("user is disconnected!");
   });
 
-  socket.on("message", async (message) => {
-    const response = await generateMessage(message);
-    
+  socket.on("ai-message", async (message) => {
     chatHistory.push({
       role: "user",
-      parts: { text: message },
+      parts: [{ text: message }],
     });
 
-    socket.emit("response", response);
+    const response = await generateMessage(chatHistory);
 
     chatHistory.push({
       role: "model",
-      parts: { text: response },
+      parts: [{ text: response }],
     });
+
+    socket.emit("ai-response", response);
 
     console.log(response);
     console.log(chatHistory);
