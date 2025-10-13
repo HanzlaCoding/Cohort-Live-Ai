@@ -25,16 +25,12 @@ async function registerController(req, res) {
 
   const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET);
 
-  res.cookie(
-    "token",
-    token,
-    {
-      httpOnly: true,
-      secure: true,
-      sameSite: "None",
-      expires: new Date(Date.now() + 8 * 3600000),
-    }
-  );
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+    expires: new Date(Date.now() + 8 * 3600000),
+  });
 
   return res.status(201).json({
     message: "user created successfully.",
@@ -57,7 +53,7 @@ async function loginController(req, res) {
   }
 
   const isPasswordValid = await bcrypt.compare(password, user.password);
-  
+
   if (!isPasswordValid) {
     return res.status(401).json({
       message: "Invalid credentials.",
@@ -66,21 +62,12 @@ async function loginController(req, res) {
 
   const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
 
-  res.cookie(
-    "token",
-    token,
-    {
-      httpOnly: true,
-      secure: true,
-      sameSite: "None",
-      expires: new Date(Date.now() + 8 * 3600000),
-    } // 8 hours
-  );
+  res.cookie("token", token);
 
   return res.status(200).json({
     message: "Login successful.",
     user,
-    token
+    token,
   });
 }
 
@@ -89,8 +76,8 @@ async function getUserController(req, res) {
   const userId = req.userId;
 
   const user = await userModel.findById(userId);
- 
-  if (!user) {  
+
+  if (!user) {
     return res.status(404).json({
       message: "User not found.",
     });
@@ -113,5 +100,5 @@ module.exports = {
   registerController,
   loginController,
   logoutController,
-  getUserController
+  getUserController,
 };

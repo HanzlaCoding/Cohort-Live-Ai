@@ -8,7 +8,15 @@ export default function ChatBox() {
   console.log(message);
 
   const [messages, setMessages] = useState([
-    
+    {
+      id: 1,
+      text: "Hello! How can I assist you today?",
+      time: new Date().toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "2-digit",
+      }),
+      sender: "bot",
+    }
   ]);
 
   const handleSend = () => {

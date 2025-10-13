@@ -12,4 +12,4 @@ router.post("/",
     postController
 );
 
-module.exports = router;
+module.exports = router; 
