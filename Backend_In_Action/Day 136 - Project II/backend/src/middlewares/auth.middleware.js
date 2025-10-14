@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 async function authUser(req, res, next) {
 
-  const token = req.cookies.token;
+  const token = req.cookies.token || localStorage.getItem("token");
 
   if (!token) {
     return res.status(401).json({ message: "Unauthorized" });

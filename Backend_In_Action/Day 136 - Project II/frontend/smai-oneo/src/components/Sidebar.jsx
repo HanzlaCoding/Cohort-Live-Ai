@@ -1,4 +1,6 @@
 import React from "react";
+import LogoutButton from "./LogoutButton";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const profile = {
@@ -12,11 +14,21 @@ const Sidebar = () => {
     avatar:
       "https://images.unsplash.com/photo-1603415526960-f7e0328f6a38?w=400&q=80&auto=format&fit=crop&crop=faces",
   };
+  const navigate = useNavigate();
+
+  const createPost = () => {
+    navigate("/create-post-caption");
+  };
 
   return (
     <>
       <aside className="lg:col-span-4">
         <div className="max-w-[350px] lg:sticky lg:top-8 mx-auto">
+          <LogoutButton
+            className={
+              "w-40 bg-red-500 text-white py-2 rounded-2xl font-semibold shadow hover:bg-red-600 hover:shadow-lg hover:scale-[1.01] active:scale-[.99] transition"
+            }
+          />
           <div className="bg-white rounded-[32px] border border-gray-100 shadow-2xl overflow-hidden transition-all hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
             <div className="relative h-40">
               <div
@@ -26,7 +38,10 @@ const Sidebar = () => {
                 }}
               />
               <div className="absolute top-4 right-4">
-                <button className="bg-white text-[#059669] font-semibold px-4 py-2 rounded-full shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-transform">
+                <button
+                  onClick={createPost}
+                  className="bg-white text-[#059669] font-semibold px-4 py-2 rounded-full shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-transform"
+                >
                   + New Post
                 </button>
               </div>

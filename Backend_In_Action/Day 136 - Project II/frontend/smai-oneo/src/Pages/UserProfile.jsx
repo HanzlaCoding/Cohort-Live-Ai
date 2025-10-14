@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Sidebar from "../components/Sidebar";
 import Post from "../components/Post";
 import Feed from "../components/Feed";
+import { UserContext } from "../context/UserContext";
 
 export default function UserProfile() {
+  const { user, setUser } = useContext(UserContext);
+
+  console.log(user);
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#111827] py-10">
       <div className="mx-auto max-w-[1280px] px-6">

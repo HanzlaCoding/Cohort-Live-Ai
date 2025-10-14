@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import ErrorPopup from "../components/ErrorPopup";
-import UserContext from "../context/UserContext";
+import { UserContext } from "../context/UserContext";
 
 export default function Login() {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -17,9 +17,16 @@ export default function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const loginSuccessfully = () => {
-    localStorage.setItem("token", response?.token);
+  const loginSuccessfully = (response) => {
+    console.log("Login Successful:", response.data);
+    setResponse(response.data);
+
+    document.cookie = `token=${response.data.token}; path=/;`; // Set cookie
+    setUser(response.data.token);
+
+    localStorage.setItem("token", response.data.token);
     console.log(response);
+    
     setTimeout(() => {
       navigate("/user-profile");
     }, 3000);
@@ -31,11 +38,7 @@ export default function Login() {
     const loginResponse = await axios
       .post(import.meta.env.VITE_AUTH_API_URL + "/login", formData)
       .then((response) => {
-        console.log("Login Successful:", response.data);
-        setResponse(response.data);
-        document.cookie = `token=${response.data.token}; path=/;`; // Set cookie
-        setUser(response.data.token);
-        loginSuccessfully();
+        loginSuccessfully(response);
         return response;
       })
       .catch((error) => {
